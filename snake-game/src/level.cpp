@@ -60,7 +60,7 @@ void Level::StartGame()
 		while (_window->pollEvent(event))
 		{
 
-			if (_isSnakeMoving == false || event.type == sf::Event::Closed)
+			if (!_isSnakeMoving || event.type == sf::Event::Closed)
 			{
 				movingThread.terminate();
 				_window->close();
@@ -109,7 +109,7 @@ void Level::StartMovingSnake()
 {
 	while (_isSnakeMoving)
 	{
-		if (_field->TryMoveSnake() == false)
+		if (!_field->TryMoveSnake())
 		{
 			_isSnakeMoving = false;
 			break;
