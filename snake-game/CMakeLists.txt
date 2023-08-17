@@ -2,7 +2,7 @@ add_executable(snake-game WIN32 snake-game.cpp
         src/field.cpp
         src/food.cpp
         src/level.cpp
-        src/menu.cpp
+        src/main-menu.cpp
         src/snake.cpp
         src/witch_level.cpp)
 

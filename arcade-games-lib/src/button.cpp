@@ -2,13 +2,15 @@
 
 #include <utility>
 
-Button::Button(const sf::Vector2f& size, const sf::Vector2f& position)  : _size(size), _position(position)
+ArcadeGame::Button::Button(const sf::Vector2f& size, const sf::Vector2f& position, const std::function<void(void)>& onClick)  : _size(size), _position(position), _onClick(onClick)
 {
 	_button.setSize(_size);
 	_button.setPosition(_position);
+
 }
 
-Button::Button(const sf::Vector2f& size, const sf::Vector2f& position, sf::Text  text, const sf::Color& color) : _size(size), _position(position), _buttonText(std::move(text))
+ArcadeGame::Button::Button(const sf::Vector2f& size, const sf::Vector2f& position, sf::Text  text, const sf::Color& color, const std::function<void(void)>& onClick) : _size(size),
+						   _position(position), _buttonText(std::move(text)), _onClick(onClick)
 {
 	_button.setSize(_size);
 	_button.setPosition(_position);
@@ -16,30 +18,30 @@ Button::Button(const sf::Vector2f& size, const sf::Vector2f& position, sf::Text 
 	SetText(_buttonText);
 }
 
-void Button::SetText(const sf::Text& text)
+void ArcadeGame::Button::SetText(const sf::Text& text)
 {
 	_buttonText = text;
 	CenterText();
 }
 
-void Button::SetColor(const sf::Color& color)
+void ArcadeGame::Button::SetColor(const sf::Color& color)
 {
 	_button.setFillColor(color);
 }
 
-void Button::Resize(const sf::Vector2f& size)
+void ArcadeGame::Button::Resize(const sf::Vector2f& size)
 {
 	_button.setSize(size);
 	CenterText();
 }
 
-void Button::SetPosition(const sf::Vector2f& position)
+void ArcadeGame::Button::SetPosition(const sf::Vector2f& position)
 {
 	_button.setPosition(position);
 	CenterText();
 }
 
-void Button::CenterText()
+void ArcadeGame::Button::CenterText()
 {
 	sf::Vector2f centerPosition(_button.getPosition().x + _button.getSize().x / 2, _button.getPosition().y + _button.getSize().y / 2);
 	auto textBounds = _buttonText.getGlobalBounds();
@@ -48,13 +50,18 @@ void Button::CenterText()
 	_buttonText.setPosition(centerPosition);
 }
 
-bool Button::IsMouseInArea(const sf::Vector2f& mousePosition) const
+bool ArcadeGame::Button::IsMouseInArea(const sf::Vector2f& mousePosition) const
 {
 	return _button.getGlobalBounds().contains(mousePosition) || _buttonText.getGlobalBounds().contains(mousePosition);
 }
 
-void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void ArcadeGame::Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(_button);
 	target.draw(_buttonText);
+}
+
+void ArcadeGame::Button::Invoke() const
+{
+	_onClick();
 }

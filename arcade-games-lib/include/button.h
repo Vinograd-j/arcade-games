@@ -2,39 +2,46 @@
 
 #include <SFML/Graphics.hpp>
 
-class Button final : public sf::Drawable
-{
+namespace ArcadeGame{
 
-private:
+	class Button final : public sf::Drawable
+	{
 
-	sf::RectangleShape _button;
-	sf::Text _buttonText;
+	private:
 
-	sf::Vector2f _size;
-	sf::Vector2f _position;
+		sf::RectangleShape _button;
+		sf::Text _buttonText;
 
-	sf::Clock _clock;
+		sf::Vector2f _size;
+		sf::Vector2f _position;
 
-public:
+		sf::Clock _clock;
 
-	explicit Button(const sf::Vector2f& size, const sf::Vector2f& position);
+		std::function<void()> _onClick;
 
-	explicit Button(const sf::Vector2f& size, const sf::Vector2f& position, sf::Text text, const sf::Color& color);
+	public:
 
-	void SetText(const sf::Text& text);
+		explicit Button(const sf::Vector2f& size, const sf::Vector2f& position, const std::function<void(void)>& onClick);
 
-	void SetColor(const sf::Color& color);
+		explicit Button(const sf::Vector2f& size, const sf::Vector2f& position, sf::Text text, const sf::Color& color, const std::function<void(void)>& onClick);
 
-	void Resize(const sf::Vector2f& size);
+		void SetText(const sf::Text& text);
 
-	void SetPosition(const sf::Vector2f& position);
+		void SetColor(const sf::Color& color);
 
-	[[nodiscard]] bool IsMouseInArea(const sf::Vector2f& mousePosition) const;
+		void Resize(const sf::Vector2f& size);
 
-	void CenterText();
+		void SetPosition(const sf::Vector2f& position);
 
-private:
+		[[nodiscard]] bool IsMouseInArea(const sf::Vector2f& mousePosition) const;
 
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+		void CenterText();
 
-};
+		void Invoke() const;
+
+	private:
+
+		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+	};
+}
