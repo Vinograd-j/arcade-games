@@ -1,4 +1,4 @@
-add_executable(snake-game WIN32 snake-game.cpp
+add_library(snake-game STATIC
         src/field.cpp
         src/food.cpp
         src/level.cpp
