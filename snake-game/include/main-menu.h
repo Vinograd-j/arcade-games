@@ -32,6 +32,8 @@ namespace SnakeGame{
 
 		void Open();
 
+		~MainMenu();
+
 	private:
 
 		void Initialize();

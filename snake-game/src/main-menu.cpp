@@ -79,3 +79,11 @@ void SnakeGame::MainMenu::CreateButtons()
 	_menu.AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), *_witchButtonText, sf::Color(142, 68, 227), [this]() {MainMenu::OnWitchLevelChosen();}));
 
 }
+
+SnakeGame::MainMenu::~MainMenu()
+{
+	delete _easyButtonText;
+	delete _normalButtonText;
+	delete _hardButtonText;
+	delete _witchButtonText;
+}

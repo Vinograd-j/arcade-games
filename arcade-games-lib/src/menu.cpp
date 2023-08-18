@@ -61,6 +61,12 @@ void ArcadeGame::Menu::Open()
 	}
 }
 
+
+void ArcadeGame::Menu::Close()
+{
+	_window.close();
+}
+
 ArcadeGame::Menu::~Menu()
 {
 	for (auto button : _buttons)
@@ -69,3 +75,4 @@ ArcadeGame::Menu::~Menu()
 	for (auto text : _texts)
 		delete text;
 }
+
