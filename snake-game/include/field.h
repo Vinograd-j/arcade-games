@@ -7,38 +7,43 @@
 #include "random.h"
 #include "direction.h"
 
-class Field final : public sf::Drawable
+namespace SnakeGame
 {
 
-private:
+	class Field final : public sf::Drawable
+	{
 
-	Snake* _snake {};
-	Food* _food {};
+	private:
 
-	sf::RectangleShape _field;
-	sf::RectangleShape _border;
+		Snake* _snake{};
+		Food* _food{};
 
-	sf::Vector2f _size;
+		sf::RectangleShape _field;
+		sf::RectangleShape _border;
 
-	float _outlineThickness;	
+		sf::Vector2f _size;
 
-	std::mutex _lockObject;
+		float _outlineThickness;
 
-public:
+		std::mutex _lockObject;
 
-	explicit Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize, Snake* snake, Food* food);
+	public:
 
-	bool TryMoveSnake();
+		explicit Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize,
+				Snake* snake, Food* food);
 
-	bool TrySpawnFood();
+		bool TryMoveSnake();
 
-	void ChangeSnakeDirection(const Direction& direction);
+		bool TrySpawnFood();
 
-private:
+		void ChangeSnakeDirection(const Direction& direction);
 
-	void InitializeField(const sf::VideoMode& windowSize);
+	private:
 
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+		void InitializeField(const sf::VideoMode& windowSize);
 
-};
+		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
+	};
+
+}

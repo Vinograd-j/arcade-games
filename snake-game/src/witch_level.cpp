@@ -1,7 +1,7 @@
-#include "../include/witch_level.h"
+#include "witch_level.h"
 
 
-void WitchLevel::StartMovingSnake()
+void SnakeGame::WitchLevel::StartMovingSnake()
 {
 
 	sf::Clock clock;

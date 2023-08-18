@@ -1,12 +1,18 @@
 #pragma once
 #include "level.h"
 
-class HardLevel final : public Level 
+namespace SnakeGame
 {
 
-public:
+	class HardLevel final : public Level
+	{
 
-	explicit HardLevel(const sf::Color& backgroundColor) : Level(sf::Color(backgroundColor), 50) {}
+	public:
 
-};
+		explicit HardLevel(const sf::Color& backgroundColor) : Level(sf::Color(backgroundColor), 50)
+		{
+		}
 
+	};
+
+}

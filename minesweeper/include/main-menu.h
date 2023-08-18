@@ -1,9 +1,8 @@
 #pragma once
-
-#include "button.h"
 #include "menu.h"
 
-namespace SnakeGame{
+namespace Minesweeper
+{
 
 	class MainMenu
 	{
@@ -23,7 +22,6 @@ namespace SnakeGame{
 		sf::Text* _easyButtonText{};
 		sf::Text* _normalButtonText{};
 		sf::Text* _hardButtonText{};
-		sf::Text* _witchButtonText{};
 
 	public:
 
@@ -42,10 +40,12 @@ namespace SnakeGame{
 
 		void OnHardLevelChosen() const;
 
-		void OnWitchLevelChosen() const;
-
 		void CreateTexts();
 		void CreateButtons();
+
+	public:
+
+		~MainMenu();
 
 	};
 

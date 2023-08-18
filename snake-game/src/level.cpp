@@ -1,17 +1,16 @@
-﻿#include "../include/level.h"
+﻿#include "level.h"
 
-Level::Level(const sf::Color& backgroundColor, int snakeSpeed) : SNAKE_SPEED(snakeSpeed), _isSnakeMoving(true), _backgroundColor(backgroundColor)
+SnakeGame::Level::Level(const sf::Color& backgroundColor, int snakeSpeed) : SNAKE_SPEED(snakeSpeed), _isSnakeMoving(true), _backgroundColor(backgroundColor)
 {
 	InitializeLevel();
 }
 
-Level::Level(const sf::Color& backgroundColor) : _isSnakeMoving(true), _backgroundColor(backgroundColor)
+SnakeGame::Level::Level(const sf::Color& backgroundColor) : _isSnakeMoving(true), _backgroundColor(backgroundColor)
 {
 	InitializeLevel();
 }
 
-
-void Level::InitializeLevel()
+void SnakeGame::Level::InitializeLevel()
 {
 
 	sf::Color foodColor(138, 7, 27);
@@ -41,7 +40,7 @@ void Level::InitializeLevel()
 
 }
 
-void Level::StartGame()
+void SnakeGame::Level::StartGame()
 {
 	sf::Thread movingThread([&]
 	{
@@ -105,7 +104,7 @@ void Level::StartGame()
 }
 
 
-void Level::StartMovingSnake()
+void SnakeGame::Level::StartMovingSnake()
 {
 	while (_isSnakeMoving)
 	{
@@ -118,7 +117,7 @@ void Level::StartMovingSnake()
 	}
 }
 
-Level::~Level()
+SnakeGame::Level::~Level()
 {
 	delete _window;
 	delete _food;

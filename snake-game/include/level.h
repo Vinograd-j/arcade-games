@@ -5,45 +5,49 @@
 #include <thread>
 #include <windows.h>
 
-class Level
+namespace SnakeGame
 {
 
-protected:	
+	class Level
+	{
 
-	Field* _field {};
+	protected:
 
-	Food* _food {};
+		Field* _field{};
 
-	Snake* _snake {};
+		Food* _food{};
 
-	sf::RenderWindow* _window {};
+		Snake* _snake{};
 
-	int SNAKE_SPEED {};
+		sf::RenderWindow* _window{};
 
-	std::atomic<bool> _isSnakeMoving;
+		int SNAKE_SPEED{};
 
-	sf::Color _backgroundColor;
+		std::atomic<bool> _isSnakeMoving;
 
-public:
+		sf::Color _backgroundColor;
 
-	explicit Level(const sf::Color& backgroundColor, int snakeSpeed);
+	public:
 
-	explicit Level(const sf::Color& backgroundColor);
+		explicit Level(const sf::Color& backgroundColor, int snakeSpeed);
 
-	void StartGame();
+		explicit Level(const sf::Color& backgroundColor);
 
-	virtual ~Level();
+		void StartGame();
 
-	Level(const Level& other) = delete;
-	Level(Level&& other) = delete;
-	Level& operator=(const Level& other) = delete;
-	Level& operator=(Level&& other) = delete;
+		virtual ~Level();
 
-private:
+		Level(const Level& other) = delete;
+		Level(Level&& other) = delete;
+		Level& operator=(const Level& other) = delete;
+		Level& operator=(Level&& other) = delete;
 
-	virtual void StartMovingSnake();
+	private:
 
-	void InitializeLevel();
+		virtual void StartMovingSnake();
 
-};
+		void InitializeLevel();
 
+	};
+
+}

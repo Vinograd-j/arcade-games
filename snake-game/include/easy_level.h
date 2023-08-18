@@ -1,12 +1,18 @@
 #pragma once
 #include "level.h"
 
-class EasyLevel final : public Level
+namespace SnakeGame
 {
 
-public:
+	class EasyLevel final : public Level
+	{
 
-	explicit EasyLevel(const sf::Color& backgroundColor) : Level(backgroundColor, 15) { }
-	
-};
+	public:
 
+		explicit EasyLevel(const sf::Color& backgroundColor) : Level(backgroundColor, 15)
+		{
+		}
+
+	};
+
+}

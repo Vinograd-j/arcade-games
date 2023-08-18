@@ -2,23 +2,39 @@
 
 #include <SFML/Graphics.hpp>
 
-class Food
+namespace SnakeGame
 {
 
-private:
+	class Food
+	{
 
-	sf::RectangleShape _food;
+	private:
 
-public:
+		sf::RectangleShape _food;
 
-	explicit Food(const sf::Vector2f& position, float size, const sf::Color& color);
+	public:
 
-	const sf::Vector2f& GetPoint() const { return _food.getPosition(); }
+		explicit Food(const sf::Vector2f& position, float size, const sf::Color& color);
 
-	void ChangePosition(const sf::Vector2f& position) { _food.setPosition(position); }
+		const sf::Vector2f& GetPoint() const
+		{
+			return _food.getPosition();
+		}
 
-	sf::Vector2f GetSize() const { return _food.getSize(); }
+		void ChangePosition(const sf::Vector2f& position)
+		{
+			_food.setPosition(position);
+		}
 
-	const sf::RectangleShape& GetFood() const { return _food; }
+		sf::Vector2f GetSize() const
+		{
+			return _food.getSize();
+		}
 
-};
+		const sf::RectangleShape& GetFood() const
+		{
+			return _food;
+		}
+
+	};
+}

@@ -1,13 +1,13 @@
 #include "field.h"
 
 
-Field::Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize, Snake* snake, Food* food) : _snake(snake), _food(food),
+SnakeGame::Field::Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize, Snake* snake, Food* food) : _snake(snake), _food(food),
                                                                                                                                  _size(fieldSize), _outlineThickness(outlineThickness)
 {
 	InitializeField(windowSize);
 }
 
-bool Field::TryMoveSnake()
+bool SnakeGame::Field::TryMoveSnake()
 {
 
 	const std::lock_guard lock(_lockObject);
@@ -42,7 +42,7 @@ bool Field::TryMoveSnake()
 	return true;
 }
 
-bool Field::TrySpawnFood()
+bool SnakeGame::Field::TrySpawnFood()
 {
 
 	auto foodSize = _food->GetSize();
@@ -73,14 +73,14 @@ bool Field::TrySpawnFood()
 	return true;
 }
 
-void Field::ChangeSnakeDirection(const Direction& direction)
+void SnakeGame::Field::ChangeSnakeDirection(const Direction& direction)
 {
 	const std::lock_guard lock(_lockObject);
 
 	_snake->ChangeDirection(direction);
 }
 
-void Field::InitializeField(const sf::VideoMode& windowSize)
+void SnakeGame::Field::InitializeField(const sf::VideoMode& windowSize)
 {
 	_field.setSize(_size);
 	_field.setOrigin(_size / 2.f);
@@ -99,7 +99,7 @@ void Field::InitializeField(const sf::VideoMode& windowSize)
 
 }
 
-void Field::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void SnakeGame::Field::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 
 	auto snakeParts = _snake->GetParts();

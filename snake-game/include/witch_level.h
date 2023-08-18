@@ -1,20 +1,26 @@
 #pragma once
 #include "level.h"
 
-class WitchLevel final : public Level
+namespace SnakeGame
 {
 
-private:
+	class WitchLevel final : public Level
+	{
 
-	const int START_SPEED = 5;
+	private:
 
-public:
+		const int START_SPEED = 5;
 
-	explicit WitchLevel(const sf::Color& backgroundColor) : Level(backgroundColor) {}
+	public:
 
-private:
+		explicit WitchLevel(const sf::Color& backgroundColor) : Level(backgroundColor)
+		{
+		}
 
-	void StartMovingSnake() override;
+	private:
 
-};
+		void StartMovingSnake() override;
 
+	};
+
+}

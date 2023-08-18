@@ -1,6 +1,6 @@
 #include "snake.h"
 
-Snake::Snake(float partSize, const sf::Vector2f& startPosition, const sf::Color& color) : _partSize(sf::Vector2f(partSize, partSize)), _color(color), _direction(Direction::RIGHT)
+SnakeGame::Snake::Snake(float partSize, const sf::Vector2f& startPosition, const sf::Color& color) : _partSize(sf::Vector2f(partSize, partSize)), _color(color), _direction(SnakeGame::Direction::RIGHT)
 {
 
 	sf::RectangleShape head;
@@ -13,12 +13,12 @@ Snake::Snake(float partSize, const sf::Vector2f& startPosition, const sf::Color&
 
 }
 
-void Snake::Grow()
+void SnakeGame::Snake::Grow()
 {
 	_parts.push_back(CreateNewPart());
 }
 
-bool Snake::CanMove() const
+bool SnakeGame::Snake::CanMove() const
 {
 	return std::ranges::all_of(_parts, [&](const auto& part)
 	{
@@ -26,7 +26,7 @@ bool Snake::CanMove() const
 	});
 }
 
-void Snake::Move()
+void SnakeGame::Snake::Move()
 {
 	for (size_t i = 0; i < _parts.size() - 1; i++)
 		_parts[i] = _parts[i + 1];
@@ -34,7 +34,7 @@ void Snake::Move()
 	_parts[_parts.size() - 1] = CreateNewPart();
 }
 
-sf::Vector2f Snake::GetNextPartCoords() const
+sf::Vector2f SnakeGame::Snake::GetNextPartCoords() const
 {
 
 	auto head = _parts.back();
@@ -46,16 +46,16 @@ sf::Vector2f Snake::GetNextPartCoords() const
 	switch (_direction)
 	{
 
-	case Direction::UP:
+	case SnakeGame::Direction::UP:
 		return { headPosition.x, headPosition.y - headSize.y };
 
-	case Direction::DOWN:
+	case SnakeGame::Direction::DOWN:
 		return  { headPosition.x, headPosition.y + headSize.y };
 
-	case Direction::LEFT:
+	case SnakeGame::Direction::LEFT:
 		return { headPosition.x - headSize.x, headPosition.y };
 
-	case Direction::RIGHT:
+	case SnakeGame::Direction::RIGHT:
 		return { headPosition.x + headSize.x, headPosition.y };
 	}
 
@@ -63,7 +63,7 @@ sf::Vector2f Snake::GetNextPartCoords() const
 	return {};
 }
 
-sf::RectangleShape Snake::CreateNewPart() const
+sf::RectangleShape SnakeGame::Snake::CreateNewPart() const
 {
 	sf::RectangleShape part;
 

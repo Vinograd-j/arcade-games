@@ -23,6 +23,8 @@ namespace ArcadeGame{
 
 		explicit Menu(const sf::Color& backgroundColor, const sf::VideoMode& windowSize, const sf::String& windowTitle, sf::Uint32 style);
 
+		void InitializeClassicMenu();
+
 		void AddButton(const Button* button);
 
 		void AddText(const sf::Text* text);

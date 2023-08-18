@@ -5,43 +5,57 @@
 
 #include "direction.h"
 
-class Snake
+namespace SnakeGame
 {
 
-private:
+	class Snake
+	{
 
-	std::vector<sf::RectangleShape> _parts;
+	private:
 
-	sf::Vector2f _partSize;
+		std::vector<sf::RectangleShape> _parts;
 
-	sf::Color _color;
+		sf::Vector2f _partSize;
 
-	Direction _direction;
+		sf::Color _color;
 
-public:
+		Direction _direction;
 
-	explicit Snake(float partSize, const sf::Vector2f& startPosition, const sf::Color& color);
+	public:
 
-public:
+		explicit Snake(float partSize, const sf::Vector2f& startPosition, const sf::Color& color);
 
-	void Grow();
+	public:
 
-	[[nodiscard]] bool CanMove() const;
+		void Grow();
 
-	void Move();
+		[[nodiscard]] bool CanMove() const;
 
-	void ChangeDirection(const Direction& direction) { _direction = direction; }
+		void Move();
 
-public:
+		void ChangeDirection(const Direction& direction)
+		{
+			_direction = direction;
+		}
 
-	[[nodiscard]] sf::Vector2f GetSize() const { return _partSize; }
+	public:
 
-	[[nodiscard]] const std::vector<sf::RectangleShape>& GetParts() const { return _parts; }
+		[[nodiscard]] sf::Vector2f GetSize() const
+		{
+			return _partSize;
+		}
 
-	[[nodiscard]] sf::Vector2f GetNextPartCoords() const;
+		[[nodiscard]] const std::vector<sf::RectangleShape>& GetParts() const
+		{
+			return _parts;
+		}
 
-private:
+		[[nodiscard]] sf::Vector2f GetNextPartCoords() const;
 
-	[[nodiscard]] sf::RectangleShape CreateNewPart() const;
+	private:
 
-};
+		[[nodiscard]] sf::RectangleShape CreateNewPart() const;
+
+	};
+
+}

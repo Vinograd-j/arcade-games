@@ -69,5 +69,3 @@ ArcadeGame::Menu::~Menu()
 	for (auto text : _texts)
 		delete text;
 }
-
-

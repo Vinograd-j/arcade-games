@@ -1,6 +1,11 @@
 #pragma once
 
-enum class Direction
+namespace SnakeGame
 {
-	UP, DOWN, RIGHT, LEFT
-};
+
+	enum class Direction
+	{
+		UP, DOWN, RIGHT, LEFT
+	};
+
+}
