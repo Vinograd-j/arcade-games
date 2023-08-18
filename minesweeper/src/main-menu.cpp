@@ -18,6 +18,11 @@ void Minesweeper::MainMenu::Open()
 	_menu.Open();
 }
 
+void Minesweeper::MainMenu::Close()
+{
+	_menu.Close();
+}
+
 void Minesweeper::MainMenu::CreateTexts()
 {
 	auto* title = new sf::Text("MINESWEEPER", _textFont, 42);
@@ -70,3 +75,5 @@ Minesweeper::MainMenu::~MainMenu()
 	delete _normalButtonText;
 	delete _hardButtonText;
 }
+
+

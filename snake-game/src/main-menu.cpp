@@ -25,25 +25,9 @@ void SnakeGame::MainMenu::Open()
 	_menu.Open();
 }
 
-
-void SnakeGame::MainMenu::OnEasyLevelChosen() const
+void SnakeGame::MainMenu::Close()
 {
-	EasyLevel(sf::Color::Black).StartGame();
-}
-
-void SnakeGame::MainMenu::OnNormalLevelChosen() const
-{
-	NormalLevel(sf::Color(4, 14, 64)).StartGame();
-}
-
-void SnakeGame::MainMenu::OnHardLevelChosen() const
-{
-	HardLevel(sf::Color(20, 56, 29)).StartGame();
-}
-
-void SnakeGame::MainMenu::OnWitchLevelChosen() const
-{
-	WitchLevel(sf::Color(57, 7, 79)).StartGame();
+	_menu.Close();
 }
 
 void SnakeGame::MainMenu::CreateTexts()
@@ -80,6 +64,27 @@ void SnakeGame::MainMenu::CreateButtons()
 
 }
 
+
+void SnakeGame::MainMenu::OnEasyLevelChosen() const
+{
+	EasyLevel(sf::Color::Black).StartGame();
+}
+
+void SnakeGame::MainMenu::OnNormalLevelChosen() const
+{
+	NormalLevel(sf::Color(4, 14, 64)).StartGame();
+}
+
+void SnakeGame::MainMenu::OnHardLevelChosen() const
+{
+	HardLevel(sf::Color(20, 56, 29)).StartGame();
+}
+
+void SnakeGame::MainMenu::OnWitchLevelChosen() const
+{
+	WitchLevel(sf::Color(57, 7, 79)).StartGame();
+}
+
 SnakeGame::MainMenu::~MainMenu()
 {
 	delete _easyButtonText;
@@ -87,3 +92,4 @@ SnakeGame::MainMenu::~MainMenu()
 	delete _hardButtonText;
 	delete _witchButtonText;
 }
+

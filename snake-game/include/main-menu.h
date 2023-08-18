@@ -31,12 +31,16 @@ namespace SnakeGame{
 				const sf::Font& textFont);
 
 		void Open();
+		void Close();
 
 		~MainMenu();
 
 	private:
 
 		void Initialize();
+
+		void CreateTexts();
+		void CreateButtons();
 
 		void OnEasyLevelChosen() const;
 
@@ -45,9 +49,6 @@ namespace SnakeGame{
 		void OnHardLevelChosen() const;
 
 		void OnWitchLevelChosen() const;
-
-		void CreateTexts();
-		void CreateButtons();
 
 	};
 

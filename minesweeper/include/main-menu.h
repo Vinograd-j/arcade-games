@@ -29,23 +29,22 @@ namespace Minesweeper
 				const sf::Font& textFont);
 
 		void Open();
+		void Close();
+
+		~MainMenu();
 
 	private:
 
 		void Initialize();
+
+		void CreateTexts();
+		void CreateButtons();
 
 		void OnEasyLevelChosen() const;
 
 		void OnNormalLevelChosen() const;
 
 		void OnHardLevelChosen() const;
-
-		void CreateTexts();
-		void CreateButtons();
-
-	public:
-
-		~MainMenu();
 
 	};
 
