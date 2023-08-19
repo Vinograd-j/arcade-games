@@ -7,5 +7,6 @@ int main()
 	if (!font.loadFromFile("rubik-spray.ttf"))
 		throw std::logic_error("Can`t load font rubik-spray");
 
-	Games::Menu(font).Open();
+	MainMenu(font).Open();
+
 }

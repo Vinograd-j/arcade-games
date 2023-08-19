@@ -1,48 +1,50 @@
 #pragma once
 #include "menu.h"
+#include "minesweeper-game-menu.h"
+#include "snake-main-menu.h"
 
-namespace Games
+#include <memory>
+
+class MainMenu
 {
 
-	class Menu
-	{
+private:
 
-	private:
+	ArcadeGame::Menu* _menu;
 
-		ArcadeGame::Menu* _menu;
+	sf::Font _textFont;
 
-		sf::Font _textFont;
+	unsigned int _textSize;
 
-		unsigned int _textSize;
+	sf::VideoMode _windowSize;
 
-		sf::VideoMode _windowSize;
+	sf::Vector2f _buttonSize;
 
-		sf::Vector2f _buttonSize;
+	sf::Text _snakeButtonText;
+	sf::Text _minesweeperButtonText;
 
-		sf::Text _snakeButtonText;
-		sf::Text _minesweeperButtonText;
+	std::unique_ptr<class MinesweeperMenu> _minesweeperMenu;
+	std::unique_ptr<class SnakeMenu> _snakeMenu;
 
-	public:
+public:
 
-		explicit Menu(const sf::Font& textFont);
+	explicit MainMenu(const sf::Font& textFont);
 
-		void Open();
-		void Close();
+	void Open();
+	void Close();
 
-		~Menu();
+	~MainMenu();
 
-	private:
+private:
 
-		void Initialize();
+	void Initialize();
 
-		void CreateTexts();
-		void CreateButtons();
+	void CreateTexts();
+	void CreateButtons();
 
-		void OnSnakeGameChosen();
+	void OnSnakeGameChosen();
 
-		void OnMinesweeperChanged();
+	void OnMinesweeperChanged();
 
 
-	};
-
-}
+};

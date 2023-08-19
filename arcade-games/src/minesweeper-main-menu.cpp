@@ -1,12 +1,11 @@
-#include "main-menu.h"
-#include "../../arcade-games/include/main-menu.h"
+#include "minesweeper-game-menu.h"
 
-Minesweeper::MainMenu::MainMenu(const sf::Font& textFont) : _textFont(textFont)
+MinesweeperMenu::MinesweeperMenu(const sf::Font& textFont) : _textFont(textFont)
 {
 	Initialize();
 }
 
-void Minesweeper::MainMenu::Initialize()
+void MinesweeperMenu::Initialize()
 {
 
 	_textSize = 28;
@@ -19,38 +18,39 @@ void Minesweeper::MainMenu::Initialize()
 	CreateButtons();
 }
 
-void Minesweeper::MainMenu::Open()
+void MinesweeperMenu::Open()
 {
 	_menu->Open();
 }
 
-void Minesweeper::MainMenu::Close()
+void MinesweeperMenu::Close()
 {
 	_menu->Close();
 }
 
-void Minesweeper::MainMenu::OnEasyLevelChosen() const
+void MinesweeperMenu::OnEasyLevelChosen() const
 {
 
 }
 
-void Minesweeper::MainMenu::OnNormalLevelChosen() const
+void MinesweeperMenu::OnNormalLevelChosen() const
 {
 
 }
 
-void Minesweeper::MainMenu::OnHardLevelChosen() const
+void MinesweeperMenu::OnHardLevelChosen() const
 {
 
 }
 
-void Minesweeper::MainMenu::OnReturnChosen()
+void MinesweeperMenu::OnReturnChosen()
 {
 	Close();
-	Games::Menu(_textFont).Open();
+	_mainMenu = std::make_unique<class MainMenu>(_textFont);
+	_mainMenu->Open();
 }
 
-void Minesweeper::MainMenu::CreateTexts()
+void MinesweeperMenu::CreateTexts()
 {
 	auto* title = new sf::Text("MINESWEEPER", _textFont, 42);
 
@@ -70,19 +70,19 @@ void Minesweeper::MainMenu::CreateTexts()
 	_menu->AddText(title);
 }
 
-void Minesweeper::MainMenu::CreateButtons()
+void MinesweeperMenu::CreateButtons()
 {
 
 	float centerX = (static_cast<float>(_windowSize.width) - _buttonSize.x) / 2.f;
 	float centerY = (static_cast<float>(_windowSize.height) - _buttonSize.y) / 2.f;
 
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _easyButtonText, sf::Color(201, 209, 180), [this](){MainMenu::OnEasyLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _easyButtonText, sf::Color(201, 209, 180), [this](){MinesweeperMenu::OnEasyLevelChosen();}));
 	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY), _normalButtonText, sf::Color(23, 138, 50), [this](){OnNormalLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _hardButtonText, sf::Color(194, 129, 25), [this](){MainMenu::OnHardLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 250), _returnButtonText, sf::Color(171, 218, 222), [this]() {MainMenu::OnReturnChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _hardButtonText, sf::Color(194, 129, 25), [this](){MinesweeperMenu::OnHardLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 250), _returnButtonText, sf::Color(171, 218, 222), [this]() {MinesweeperMenu::OnReturnChosen();}));
 }
 
-Minesweeper::MainMenu::~MainMenu()
+MinesweeperMenu::~MinesweeperMenu()
 {
 	delete _menu;
 }

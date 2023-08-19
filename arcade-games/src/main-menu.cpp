@@ -1,13 +1,11 @@
 #include "main-menu.h"
-#include "../../snake-game/include/main-menu.h"
-#include "../../minesweeper/include/main-menu.h"
 
-Games::Menu::Menu(const sf::Font& textFont) : _textFont(textFont)
+MainMenu::MainMenu(const sf::Font& textFont) : _textFont(textFont)
 {
 	Initialize();
 }
 
-void Games::Menu::Initialize()
+void MainMenu::Initialize()
 {
 
 	_textSize = 30;
@@ -20,29 +18,31 @@ void Games::Menu::Initialize()
 	CreateButtons();
 }
 
-void Games::Menu::Open()
+void MainMenu::Open()
 {
 	_menu->Open();
 }
 
-void Games::Menu::Close()
+void MainMenu::Close()
 {
 	_menu->Close();
 }
 
-void Games::Menu::OnSnakeGameChosen()
+void MainMenu::OnSnakeGameChosen()
 {
 	Close();
-	SnakeGame::MainMenu( _textFont).Open();
+	_snakeMenu = std::make_unique<class SnakeMenu>(_textFont);
+	_snakeMenu->Open();
 }
 
-void Games::Menu::OnMinesweeperChanged()
+void MainMenu::OnMinesweeperChanged()
 {
 	Close();
-	Minesweeper::MainMenu( _textFont).Open();
+	_minesweeperMenu = std::make_unique<class MinesweeperMenu>(_textFont);
+	_minesweeperMenu->Open();
 }
 
-void Games::Menu::CreateTexts()
+void MainMenu::CreateTexts()
 {
 	auto* title = new sf::Text("ARCADE GAMES", _textFont, 50);
 
@@ -59,19 +59,16 @@ void Games::Menu::CreateTexts()
 	_menu->AddText(title);
 }
 
-void Games::Menu::CreateButtons()
+void MainMenu::CreateButtons()
 {
 	float centerX = (static_cast<float>(_windowSize.width) - _buttonSize.x) / 2.f;
 	float centerY = (static_cast<float>(_windowSize.height) - _buttonSize.y) / 2.f;
 
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _snakeButtonText, sf::Color(201, 209, 180), [this](){Menu::OnSnakeGameChosen();}));
-	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _minesweeperButtonText, sf::Color(23, 138, 50), [this](){Menu::OnMinesweeperChanged();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _snakeButtonText, sf::Color(201, 209, 180), [this](){MainMenu::OnSnakeGameChosen();}));
+	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _minesweeperButtonText, sf::Color(23, 138, 50), [this](){MainMenu::OnMinesweeperChanged();}));
 }
 
-Games::Menu::~Menu()
+MainMenu::~MainMenu()
 {
 	delete _menu;
 }
-
-
-

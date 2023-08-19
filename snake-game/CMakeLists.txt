@@ -2,7 +2,6 @@ add_library(snake-game STATIC
         src/field.cpp
         src/food.cpp
         src/level.cpp
-        src/main-menu.cpp
         src/snake.cpp
         src/witch_level.cpp)
 
