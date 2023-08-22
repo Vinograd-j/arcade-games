@@ -23,8 +23,8 @@ private:
 	sf::Text _snakeButtonText;
 	sf::Text _minesweeperButtonText;
 
-	std::unique_ptr<class MinesweeperMenu> _minesweeperMenu;
-	std::unique_ptr<class SnakeMenu> _snakeMenu;
+	class SnakeMenu* _snakeMenu;
+	class MinesweeperMenu* _minesweeperMenu;
 
 public:
 
@@ -45,6 +45,5 @@ private:
 	void OnSnakeGameChosen();
 
 	void OnMinesweeperChanged();
-
 
 };

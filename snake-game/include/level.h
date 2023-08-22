@@ -4,7 +4,7 @@
 #include <atomic>
 #include <thread>
 #include <windows.h>
-
+#include <SFML/Audio.hpp>
 namespace SnakeGame
 {
 
@@ -26,6 +26,8 @@ namespace SnakeGame
 		std::atomic<bool> _isSnakeMoving;
 
 		sf::Color _backgroundColor;
+
+
 
 	public:
 

@@ -1,6 +1,11 @@
 #include "minesweeper-game-menu.h"
+#include "../../minesweeper/include/level.h"
+#include "../../minesweeper/include/easy-level.h"
+#include "../../minesweeper/include/normal-level.h"
+#include "../../minesweeper/include/hard-level.h"
 
-MinesweeperMenu::MinesweeperMenu(const sf::Font& textFont) : _textFont(textFont)
+
+MinesweeperMenu::MinesweeperMenu(const sf::Font& textFont, class MainMenu* mainMenu) : _textFont(textFont), _mainMenu(mainMenu)
 {
 	Initialize();
 }
@@ -30,42 +35,41 @@ void MinesweeperMenu::Close()
 
 void MinesweeperMenu::OnEasyLevelChosen() const
 {
-
+	Minesweeper::EasyLevel().StartGame();
 }
 
 void MinesweeperMenu::OnNormalLevelChosen() const
 {
-
+	Minesweeper::NormalLevel().StartGame();
 }
 
 void MinesweeperMenu::OnHardLevelChosen() const
 {
-
+	Minesweeper::HardLevel().StartGame();
 }
 
 void MinesweeperMenu::OnReturnChosen()
 {
 	Close();
-	_mainMenu = std::make_unique<class MainMenu>(_textFont);
 	_mainMenu->Open();
 }
 
 void MinesweeperMenu::CreateTexts()
 {
-	auto* title = new sf::Text("MINESWEEPER", _textFont, 42);
+	sf::Text title("MINESWEEPER", _textFont, 42);
 
 	_easyButtonText = sf::Text("Easy Level", _textFont, _textSize);
 	_normalButtonText =  sf::Text("Normal Level", _textFont, _textSize);
 	_hardButtonText = sf::Text("Hard Level", _textFont, _textSize);
-	_returnButtonText =  sf::Text("Return Menu", _textFont, _textSize);
+	_returnButtonText =  sf::Text("Return to Menu", _textFont, _textSize);
 
 	_easyButtonText.setFillColor(sf::Color(235, 38, 176));
 	_normalButtonText.setFillColor(sf::Color(235, 195, 87));
 	_hardButtonText.setFillColor(sf::Color(120, 28, 117));
 	_returnButtonText.setFillColor(sf::Color(191, 161, 40));
 
-	title->setPosition(((float)_windowSize.width - title->getGlobalBounds().width) / 2, ((float)_windowSize.height - title->getGlobalBounds().height) / 2 - 250);
-	title->setFillColor(sf::Color(87, 227, 59));
+	title.setPosition(((float)_windowSize.width - title.getGlobalBounds().width) / 2, ((float)_windowSize.height - title.getGlobalBounds().height) / 2 - 250);
+	title.setFillColor(sf::Color(87, 227, 59));
 
 	_menu->AddText(title);
 }

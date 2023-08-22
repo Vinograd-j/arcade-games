@@ -27,11 +27,11 @@ private:
 
 	sf::Text _returnButtonText;
 
-	std::unique_ptr<class MainMenu> _mainMenu;
+	class MainMenu* _mainMenu;
 
 public:
 
-	explicit SnakeMenu(const sf::Font& textFont);
+	explicit SnakeMenu(const sf::Font& textFont, class MainMenu* mainMenu);
 
 	void Open();
 

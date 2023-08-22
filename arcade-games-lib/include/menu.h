@@ -13,11 +13,15 @@ namespace ArcadeGame{
 
 		std::vector<const Button*> _buttons;
 
-		std::vector<const sf::Text*> _texts;
+		std::vector<sf::Text> _texts;
 
 		sf::RenderWindow _window;
 
 		sf::Color _backgroundColor;
+
+		sf::VideoMode _windowSize;
+		sf::String _windowTitle;
+		sf::Uint32 _style;
 
 	public:
 
@@ -25,7 +29,7 @@ namespace ArcadeGame{
 
 		void AddButton(const Button* button);
 
-		void AddText(const sf::Text* text);
+		void AddText(const sf::Text& text);
 
 		void Open();
 		void Close();

@@ -82,6 +82,7 @@ void SnakeGame::Field::ChangeSnakeDirection(const Direction& direction)
 
 void SnakeGame::Field::InitializeField(const sf::VideoMode& windowSize)
 {
+
 	_field.setSize(_size);
 	_field.setOrigin(_size / 2.f);
 	_field.setPosition(static_cast<float>(windowSize.width) / 2.f, static_cast<float>(windowSize.height) / 2.f);

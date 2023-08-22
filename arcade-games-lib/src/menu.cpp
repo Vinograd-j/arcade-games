@@ -1,11 +1,12 @@
 #include "menu.h"
 
-ArcadeGame::Menu::Menu(const sf::Color& backgroundColor, const sf::VideoMode& windowSize, const sf::String& windowTitle, sf::Uint32 style) : _backgroundColor(backgroundColor)
+ArcadeGame::Menu::Menu(const sf::Color& backgroundColor, const sf::VideoMode& windowSize, const sf::String& windowTitle, sf::Uint32 style) : _backgroundColor(backgroundColor),
+_windowSize(windowSize), _style(style)
 {
-	_window.create(windowSize, windowTitle, style);
+
 }
 
-void ArcadeGame::Menu::AddText(const sf::Text* text)
+void ArcadeGame::Menu::AddText(const sf::Text& text)
 {
 	_texts.push_back(text);
 }
@@ -18,6 +19,8 @@ void ArcadeGame::Menu::AddButton(const Button* button)
 
 void ArcadeGame::Menu::Open()
 {
+
+	_window.create(_windowSize, _windowTitle, _style);
 
 	while (_window.isOpen())
 	{
@@ -52,7 +55,7 @@ void ArcadeGame::Menu::Open()
 					_window.draw(*button);
 
 				for (const auto& text : _texts)
-					_window.draw(*text);
+					_window.draw(text);
 
 				_window.display();
 			}
@@ -71,8 +74,5 @@ ArcadeGame::Menu::~Menu()
 {
 	for (auto button : _buttons)
 		delete button;
-
-	for (auto text : _texts)
-		delete text;
 }
 

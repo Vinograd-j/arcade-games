@@ -1,6 +1,7 @@
+#include <iostream>
 #include "main-menu.h"
 
-MainMenu::MainMenu(const sf::Font& textFont) : _textFont(textFont)
+MainMenu::MainMenu(const sf::Font& textFont) : _textFont(textFont), _minesweeperMenu(new MinesweeperMenu(textFont, this)), _snakeMenu(new SnakeMenu(textFont, this))
 {
 	Initialize();
 }
@@ -31,20 +32,18 @@ void MainMenu::Close()
 void MainMenu::OnSnakeGameChosen()
 {
 	Close();
-	_snakeMenu = std::make_unique<class SnakeMenu>(_textFont);
 	_snakeMenu->Open();
 }
 
 void MainMenu::OnMinesweeperChanged()
 {
 	Close();
-	_minesweeperMenu = std::make_unique<class MinesweeperMenu>(_textFont);
 	_minesweeperMenu->Open();
 }
 
 void MainMenu::CreateTexts()
 {
-	auto* title = new sf::Text("ARCADE GAMES", _textFont, 50);
+	sf::Text title("ARCADE GAMES", _textFont, 50);
 
 	_snakeButtonText = sf::Text("SNAKE GAME", _textFont, _textSize);
 	_minesweeperButtonText = sf::Text("MINESWEEPER", _textFont, _textSize);
@@ -53,8 +52,8 @@ void MainMenu::CreateTexts()
 	_minesweeperButtonText.setFillColor(sf::Color(222, 216, 40));
 
 
-	title->setPosition(((float)_windowSize.width - title->getGlobalBounds().width) / 2, ((float)_windowSize.height - title->getGlobalBounds().height) / 2 - 320);
-	title->setFillColor(sf::Color(219, 70, 70));
+	title.setPosition(((float)_windowSize.width - title.getGlobalBounds().width) / 2, ((float)_windowSize.height - title.getGlobalBounds().height) / 2 - 320);
+	title.setFillColor(sf::Color(219, 70, 70));
 
 	_menu->AddText(title);
 }
@@ -71,4 +70,6 @@ void MainMenu::CreateButtons()
 MainMenu::~MainMenu()
 {
 	delete _menu;
+	delete _snakeMenu;
+	delete _minesweeperMenu;
 }

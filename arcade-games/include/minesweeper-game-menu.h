@@ -25,11 +25,11 @@ private:
 
 	sf::Text _returnButtonText{};
 
-	std::unique_ptr<class MainMenu> _mainMenu;
+	class MainMenu* _mainMenu;
 
 public:
 
-	explicit MinesweeperMenu(const sf::Font& textFont);
+	explicit MinesweeperMenu(const sf::Font& textFont, class MainMenu* mainMenu);
 
 	void Open();
 

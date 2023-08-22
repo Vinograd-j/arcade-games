@@ -6,7 +6,9 @@
 #include "../../snake-game/include/normal_level.h"
 #include "../../snake-game/include/witch_level.h"
 
-SnakeMenu::SnakeMenu(const sf::Font& textFont) : _textFont(textFont)
+#include <iostream>
+
+SnakeMenu::SnakeMenu(const sf::Font& textFont, class MainMenu* mainMenu) : _textFont(textFont), _mainMenu(mainMenu)
 {
 	Initialize();
 }
@@ -57,20 +59,19 @@ void SnakeMenu::OnWitchLevelChosen() const
 void SnakeMenu::OnReturnChosen()
 {
 	Close();
-	_mainMenu = std::make_unique<class MainMenu>(_textFont);
 	_mainMenu->Open();
 }
 
 void SnakeMenu::CreateTexts()
 {
 
-	auto* title = new sf::Text("SNAKE GAME", _textFont, 42);
+	sf::Text title("SNAKE GAME", _textFont, 42);
 
 	_easyButtonText = sf::Text("Easy Level", _textFont, _textSize);
 	_normalButtonText =  sf::Text("Normal Level", _textFont, _textSize);
 	_hardButtonText =  sf::Text("Hard Level", _textFont, _textSize);
 	_witchButtonText = sf::Text("Witch Level", _textFont, _textSize);
-	_returnButtonText = sf::Text("Return Menu", _textFont, _textSize);
+	_returnButtonText = sf::Text("Return to Menu", _textFont, _textSize);
 
 	_easyButtonText.setFillColor(sf::Color(235, 38, 176));
 	_normalButtonText.setFillColor(sf::Color(235, 195, 87));
@@ -78,8 +79,8 @@ void SnakeMenu::CreateTexts()
 	_witchButtonText.setFillColor(sf::Color(33, 207, 111));
 	_returnButtonText.setFillColor(sf::Color(191, 161, 40));
 
-	title->setPosition(((float)_windowSize.width - title->getGlobalBounds().width) / 2, ((float)_windowSize.height - title->getGlobalBounds().height) / 2 - 320);
-	title->setFillColor(sf::Color(34, 200, 230));
+	title.setPosition(((float)_windowSize.width - title.getGlobalBounds().width) / 2, ((float)_windowSize.height - title.getGlobalBounds().height) / 2 - 320);
+	title.setFillColor(sf::Color(34, 200, 230));
 
 	_menu->AddText(title);
 

@@ -1,4 +1,5 @@
 ﻿#include "level.h"
+#include "../../minesweeper/include/level.h"
 
 SnakeGame::Level::Level(const sf::Color& backgroundColor, int snakeSpeed) : SNAKE_SPEED(snakeSpeed), _isSnakeMoving(true), _backgroundColor(backgroundColor)
 {
@@ -12,6 +13,7 @@ SnakeGame::Level::Level(const sf::Color& backgroundColor) : _isSnakeMoving(true)
 
 void SnakeGame::Level::InitializeLevel()
 {
+
 
 	sf::Color foodColor(138, 7, 27);
 	sf::Color snakeColor(113, 128, 124);
@@ -124,5 +126,3 @@ SnakeGame::Level::~Level()
 	delete _snake;
 	delete _field;
 }
-
-

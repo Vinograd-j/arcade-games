@@ -16,6 +16,7 @@ public:
 	Random() : _randomGenerator(_device()) {}
 
 	size_t GenerateRandomLong(size_t min, size_t max);
+	double GenerateRandomDouble(double min, double max);
 
 };
 
