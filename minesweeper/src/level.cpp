@@ -3,7 +3,7 @@
 #include "level-window.h"
 
 Minesweeper::Level::Level(size_t cellsHeight, size_t cellsWidth, size_t bombChance) : _cellsHeight(cellsHeight), _cellsWidth(cellsWidth), _bombChance(bombChance), _windowSize(900, 900),
-																					  _cellSize(50, 50)
+																					  _cellSize(30, 30)
 {
 	Initialize();
 }
@@ -30,8 +30,8 @@ void Minesweeper::Level::CreateLevel()
 
 	Random random;
 
-	float startX = (_windowSize.width - (_cellsWidth * _cellSize.x + (_cellsWidth - 1) * 10)) / 2;
-	float startY = (_windowSize.height - (_cellsHeight * _cellSize.y + (_cellsHeight - 1) * 10)) / 2;
+	float startX = (_windowSize.width - (_cellsWidth * _cellSize.x + (_cellsWidth - 1) * 5)) / 2;
+	float startY = (_windowSize.height - (_cellsHeight * _cellSize.y + (_cellsHeight - 1) * 5)) / 2;
 
 	for (size_t i = 0; i < _cellsHeight; ++i)
 	{
@@ -41,8 +41,8 @@ void Minesweeper::Level::CreateLevel()
 
 			randomValue <= static_cast<float>(_bombChance / 100.f) ? _level[i][j] = Cell(_cellSize, true) : _level[i][j] = Cell(_cellSize, false);
 
-			float cellX = startX + j * (_cellSize.x + 10);
-			float cellY = startY + i * (_cellSize.y + 10);
+			float cellX = startX + j * (_cellSize.x + 5);
+			float cellY = startY + i * (_cellSize.y + 5);
 
 			_level[i][j].SetPosition(sf::Vector2f(cellX, cellY));
 

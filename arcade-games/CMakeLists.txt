@@ -1,4 +1,4 @@
-add_executable(arcade-games
+add_executable(arcade-games WIN32
         arcade-games.cpp
         src/main-menu.cpp
         src/snake-game-menu.cpp

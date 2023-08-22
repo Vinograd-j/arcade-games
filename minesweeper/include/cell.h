@@ -43,6 +43,8 @@ namespace Minesweeper
 
 		void SetNeighborMinesCount(int count) { _neighborMinesCount = count; }
 
+		int GetNeighborMinesCount() const { return _neighborMinesCount; }
+
 		bool IsMouseInArea(const sf::Vector2f& mousePosition) const;
 
 	private:

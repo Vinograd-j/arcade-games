@@ -10,7 +10,7 @@ namespace Minesweeper
 
 	public:
 
-		explicit NormalLevel() : Level(10, 10, 25) {}
+		explicit NormalLevel() : Level(20, 20, 25) {}
 
 	};
 

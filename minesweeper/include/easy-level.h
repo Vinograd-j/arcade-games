@@ -10,7 +10,7 @@ namespace Minesweeper
 
 	public:
 
-		explicit EasyLevel() : Level(8, 8, 10) {}
+		explicit EasyLevel() : Level(17, 17, 15) {}
 
 	};
 

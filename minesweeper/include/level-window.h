@@ -32,6 +32,10 @@ namespace Minesweeper
 
 		void RevealAll();
 
+		void RevealNeighbor(int i, int j);
+
+		bool CheckWin();
+
 		void Draw();
 
 	};

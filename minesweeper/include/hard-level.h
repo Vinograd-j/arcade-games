@@ -10,7 +10,7 @@ namespace Minesweeper
 
 	public:
 
-		explicit HardLevel() : Level(13, 13, 35) {}
+		explicit HardLevel() : Level(25, 25, 25) {}
 
 	};
 
