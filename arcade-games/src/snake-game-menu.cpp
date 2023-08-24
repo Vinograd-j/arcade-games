@@ -1,12 +1,10 @@
 #include "snake-main-menu.h"
-#include "button.h"
 
 #include "../../snake-game/include/easy_level.h"
 #include "../../snake-game/include/hard_level.h"
 #include "../../snake-game/include/normal_level.h"
 #include "../../snake-game/include/witch_level.h"
 
-#include <iostream>
 
 SnakeMenu::SnakeMenu(const sf::Font& textFont, class MainMenu* mainMenu) : _textFont(textFont), _mainMenu(mainMenu)
 {

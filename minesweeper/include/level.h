@@ -26,7 +26,7 @@ namespace Minesweeper
 
 	public:
 
-		explicit Level(size_t cellsHeight, size_t cellsWidth, size_t bombChance);
+		explicit Level(size_t cellsHeight, size_t cellsWidth, size_t bombChance, const sf::Vector2f& cellSize, const sf::VideoMode& windowSize);
 
 		void StartGame();
 

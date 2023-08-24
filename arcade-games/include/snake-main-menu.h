@@ -3,7 +3,6 @@
 #include "button.h"
 #include "menu.h"
 #include "main-menu.h"
-#include <memory>
 
 class SnakeMenu
 {

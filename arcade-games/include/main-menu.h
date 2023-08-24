@@ -3,7 +3,6 @@
 #include "minesweeper-game-menu.h"
 #include "snake-main-menu.h"
 
-#include <memory>
 
 class MainMenu
 {

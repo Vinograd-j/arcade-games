@@ -1,4 +1,3 @@
-#include <iostream>
 #include "main-menu.h"
 
 MainMenu::MainMenu(const sf::Font& textFont) : _textFont(textFont), _minesweeperMenu(new MinesweeperMenu(textFont, this)), _snakeMenu(new SnakeMenu(textFont, this))

@@ -1,5 +1,6 @@
 ﻿#include "level.h"
 #include "../../minesweeper/include/level.h"
+#include "level-window.h"
 
 SnakeGame::Level::Level(const sf::Color& backgroundColor, int snakeSpeed) : SNAKE_SPEED(snakeSpeed), _isSnakeMoving(true), _backgroundColor(backgroundColor)
 {
@@ -13,7 +14,6 @@ SnakeGame::Level::Level(const sf::Color& backgroundColor) : _isSnakeMoving(true)
 
 void SnakeGame::Level::InitializeLevel()
 {
-
 
 	sf::Color foodColor(138, 7, 27);
 	sf::Color snakeColor(113, 128, 124);
@@ -32,9 +32,6 @@ void SnakeGame::Level::InitializeLevel()
 	sf::Vector2f outlineTopLeft = centerPosition - (fieldSize / 2.f);
 	sf::Vector2f snakePosition = outlineTopLeft + sf::Vector2f(fieldThickness, fieldThickness);
 
-	_window = new sf::RenderWindow;
-	_window->create(windowSize, "SnakeGame", sf::Style::Titlebar | sf::Style::Close);
-
 	_snake = new Snake(snakeSize, snakePosition, snakeColor);
 	_food = new Food(centerPosition, foodSize, foodColor);
 
@@ -42,69 +39,16 @@ void SnakeGame::Level::InitializeLevel()
 
 }
 
+
 void SnakeGame::Level::StartGame()
 {
-	sf::Thread movingThread([&]
-	{
+
+	sf::Thread movingThread([&] {
 		StartMovingSnake();
 	});
 
-	movingThread.launch();
-
-	_window->setFramerateLimit(60);
-
-	while (_window->isOpen())
-	{
-
-		sf::Event event {};
-
-		while (_window->pollEvent(event))
-		{
-
-			if (!_isSnakeMoving || event.type == sf::Event::Closed)
-			{
-				movingThread.terminate();
-				_window->close();
-			}
-
-			if (event.type == sf::Event::KeyPressed)
-			{
-				
-				switch (event.key.code)
-				{
-				case sf::Keyboard::Up:
-					_field->ChangeSnakeDirection(Direction::UP);
-					break;
-
-				case sf::Keyboard::Down:
-					_field->ChangeSnakeDirection(Direction::DOWN);
-					break;
-
-				case sf::Keyboard::Left:
-					_field->ChangeSnakeDirection(Direction::LEFT);
-					break;
-
-				case sf::Keyboard::Right:
-					_field->ChangeSnakeDirection(Direction::RIGHT);
-					break;
-
-				default:;
-				}
-
-			}
-
-		}
-
-		if (_window->hasFocus())
-		{
-			_window->clear(_backgroundColor);
-			_window->draw(*_field);
-			_window->display();
-		}
-	}
-
+	LevelWindow(_snake, _food, _field, _backgroundColor, _isSnakeMoving, sf::VideoMode::getDesktopMode(), movingThread).Open();
 }
-
 
 void SnakeGame::Level::StartMovingSnake()
 {
@@ -126,3 +70,4 @@ SnakeGame::Level::~Level()
 	delete _snake;
 	delete _field;
 }
+

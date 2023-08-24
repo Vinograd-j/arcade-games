@@ -16,11 +16,16 @@ namespace Minesweeper
 
 		sf::VideoMode _windowSize;
 
+		sf::Color _backgroundColor;
+
 		std::vector<std::vector<Minesweeper::Cell>> _level;
+
+
 
 	public:
 
-		explicit LevelWindow(std::vector<std::vector<Minesweeper::Cell>>& level, const sf::VideoMode windowSize) : _level(level), _windowSize(windowSize) {}
+		explicit LevelWindow(std::vector<std::vector<Minesweeper::Cell>>& level, const sf::VideoMode windowSize, const sf::Color backgroundColor) :
+							 _level(level), _windowSize(windowSize), _backgroundColor(backgroundColor) {}
 
 		void Open();
 

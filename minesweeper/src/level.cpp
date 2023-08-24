@@ -2,8 +2,8 @@
 #include "random.h"
 #include "level-window.h"
 
-Minesweeper::Level::Level(size_t cellsHeight, size_t cellsWidth, size_t bombChance) : _cellsHeight(cellsHeight), _cellsWidth(cellsWidth), _bombChance(bombChance), _windowSize(900, 900),
-																					  _cellSize(30, 30)
+Minesweeper::Level::Level(size_t cellsHeight, size_t cellsWidth, size_t bombChance, const sf::Vector2f& cellSize, const sf::VideoMode& windowSize) :
+                          _cellsHeight(cellsHeight), _cellsWidth(cellsWidth), _bombChance(bombChance), _windowSize(windowSize), _cellSize(cellSize)
 {
 	Initialize();
 }
@@ -15,7 +15,7 @@ void Minesweeper::Level::Initialize()
 
 void Minesweeper::Level::StartGame()
 {
-	LevelWindow window(_level, _windowSize);
+	LevelWindow window(_level, _windowSize, sf::Color(30, 66, 50));
 	window.Open();
 }
 

@@ -2,7 +2,6 @@
 
 #include "menu.h"
 #include "main-menu.h"
-#include <memory>
 
 class MinesweeperMenu
 {

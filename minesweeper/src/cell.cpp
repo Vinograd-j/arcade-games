@@ -48,7 +48,7 @@ void Minesweeper::Cell::SetNeighborCountTest()
 	_neighborCountText.setString(std::to_string(_neighborMinesCount));
 	_neighborCountText.setCharacterSize(20);
 	_neighborCountText.setFont(_textFont);
-	_neighborCountText.setOutlineColor(sf::Color::Black);
+	_neighborCountText.setFillColor(sf::Color::Black);
 
 	sf::Vector2f centerPosition(_cell.getPosition().x + _cell.getSize().x / 2, _cell.getPosition().y + _cell.getSize().y / 2);
 

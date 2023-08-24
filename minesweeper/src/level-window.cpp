@@ -1,4 +1,5 @@
 #include "level-window.h"
+#include "../../snake-game/include/level-window.h"
 
 
 void Minesweeper::LevelWindow::Open()
@@ -44,7 +45,11 @@ void Minesweeper::LevelWindow::Open()
 				}
 			}
 
-			Draw();
+			if(_window.hasFocus())
+			{
+				Draw();
+			}
+
 
 		}
 
@@ -104,11 +109,10 @@ void Minesweeper::LevelWindow::RevealAll()
 			if (_level[i][j].GetState() == CellState::HIDDEN || _level[i][j].GetState() == CellState::FLAGGED)
 			{
 				_level[i][j].Reveal();
-				Draw();
-				Sleep(1/10);
 			}
 
 		}
+		Draw();
 	}
 
 }
@@ -150,18 +154,17 @@ bool Minesweeper::LevelWindow::CheckWin()
 
 void Minesweeper::LevelWindow::Draw()
 {
-	if (_window.hasFocus())
+
+	_window.clear(_backgroundColor);
+
+	for (size_t i = 0; i < _level.size(); ++i)
 	{
-		_window.clear(sf::Color(30, 66, 50));
-
-		for (size_t i = 0; i < _level.size(); ++i)
+		for (size_t j = 0; j < _level[i].size(); ++j)
 		{
-			for (size_t j = 0; j < _level[i].size(); ++j)
-			{
-				_window.draw(_level[i][j]);
-			}
+			_window.draw(_level[i][j]);
 		}
-
-		_window.display();
 	}
+
+	_window.display();
 }
+
