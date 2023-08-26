@@ -4,10 +4,9 @@ void SnakeGame::LevelWindow::Open()
 {
 
 	_window.create(_windowSize, "SnakeGame", sf::Style::Titlebar | sf::Style::Close);
+	_window.setFramerateLimit(60);
 
 	_movingThread.launch();
-
-	_window.setFramerateLimit(60);
 
 	while (_window.isOpen())
 	{

@@ -7,6 +7,19 @@ void Minesweeper::LevelWindow::Open()
 
 	_window.create(_windowSize, "MINESWEEPER", sf::Style::Titlebar | sf::Style::Close);
 
+	sf::SoundBuffer openBuffer;
+	sf::SoundBuffer lostBuffer;
+	sf::SoundBuffer wonBuffer;
+
+	openBuffer.loadFromFile("resources/sounds/open.wav");
+	_openSound.setBuffer(openBuffer);
+
+	lostBuffer.loadFromFile("resources/sounds/lost.wav");
+	_lostSound.setBuffer(lostBuffer);
+
+	wonBuffer.loadFromFile("resources/sounds/won.wav");
+	_wonSound.setBuffer(wonBuffer);
+
 	while (_window.isOpen())
 	{
 
@@ -31,9 +44,10 @@ void Minesweeper::LevelWindow::Open()
 
 					if (isGameLost || isWon)
 					{
+						isWon ? _wonSound.play() : _lostSound.play();
+
 						RevealAll();
 						Draw();
-
 						Sleep(3000);
 						_window.close();
 					}
@@ -70,7 +84,11 @@ bool Minesweeper::LevelWindow::HandleLeftClick(const sf::Vector2f& mousePosition
 
 					_level[i][j].Reveal();
 
-					RevealNeighbor(i, j);
+					if (!_level[i][j].IsBomb())
+						_openSound.play();
+
+					if(_level[i][j].GetNeighborMinesCount() == 0)
+						RevealNeighbor(i, j);
 
 					if(_level[i][j].IsBomb())
 					{
@@ -114,6 +132,7 @@ void Minesweeper::LevelWindow::RevealAll()
 		}
 		Draw();
 	}
+	
 
 }
 
@@ -167,4 +186,3 @@ void Minesweeper::LevelWindow::Draw()
 
 	_window.display();
 }
-

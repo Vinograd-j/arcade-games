@@ -4,7 +4,7 @@
 #include <atomic>
 #include <thread>
 #include <windows.h>
-#include <SFML/Audio.hpp>
+
 namespace SnakeGame
 {
 
@@ -19,15 +19,11 @@ namespace SnakeGame
 
 		Snake* _snake{};
 
-		sf::RenderWindow* _window{};
-
 		int SNAKE_SPEED{};
 
 		std::atomic<bool> _isSnakeMoving;
 
 		sf::Color _backgroundColor;
-
-
 
 	public:
 
@@ -38,11 +34,6 @@ namespace SnakeGame
 		void StartGame();
 
 		virtual ~Level();
-
-		Level(const Level& other) = delete;
-		Level(Level&& other) = delete;
-		Level& operator=(const Level& other) = delete;
-		Level& operator=(Level&& other) = delete;
 
 	private:
 

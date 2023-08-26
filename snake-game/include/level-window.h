@@ -5,6 +5,7 @@
 #include "snake.h"
 #include "food.h"
 #include "field.h"
+#include "SFML/Audio.hpp"
 
 namespace SnakeGame
 {

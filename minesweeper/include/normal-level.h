@@ -10,7 +10,7 @@ namespace Minesweeper
 
 	public:
 
-		explicit NormalLevel() : Level(20, 20, 25, sf::Vector2f(35,35), sf::VideoMode(900, 900)) {}
+		explicit NormalLevel() : Level(15, 15, 25, sf::Vector2f(45,45), sf::VideoMode(900, 900)) {}
 
 	};
 

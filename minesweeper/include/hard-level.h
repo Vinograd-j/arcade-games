@@ -10,7 +10,7 @@ namespace Minesweeper
 
 	public:
 
-		explicit HardLevel() : Level(25, 25, 25, sf::Vector2f(30,30), sf::VideoMode(900, 900)) {}
+		explicit HardLevel() : Level(20, 20, 25, sf::Vector2f(35,35), sf::VideoMode(900, 900)) {}
 
 	};
 

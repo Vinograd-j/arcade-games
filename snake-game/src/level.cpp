@@ -52,20 +52,22 @@ void SnakeGame::Level::StartGame()
 
 void SnakeGame::Level::StartMovingSnake()
 {
+
 	while (_isSnakeMoving)
 	{
 		if (!_field->TryMoveSnake())
 		{
 			_isSnakeMoving = false;
+
 			break;
 		}
+
 		Sleep(1000 / SNAKE_SPEED);
 	}
 }
 
 SnakeGame::Level::~Level()
 {
-	delete _window;
 	delete _food;
 	delete _snake;
 	delete _field;

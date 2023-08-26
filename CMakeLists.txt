@@ -21,3 +21,5 @@ set_target_properties(arcade-games PROPERTIES
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/arcade-games/bin"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/arcade-games/bin"
 )
+
+file(COPY resources DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")

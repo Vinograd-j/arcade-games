@@ -1,6 +1,5 @@
 #include "field.h"
 
-
 SnakeGame::Field::Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize, Snake* snake, Food* food) : _snake(snake), _food(food),
                                                                                                                                  _size(fieldSize), _outlineThickness(outlineThickness)
 {
@@ -27,6 +26,7 @@ bool SnakeGame::Field::TryMoveSnake()
 
 	if (snakeHeadRect.intersects(foodRect))
 	{
+
 		_snake->Grow();
 
 		bool spawnFoodResult = TrySpawnFood();

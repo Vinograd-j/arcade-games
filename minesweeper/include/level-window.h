@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "cell.h"
 #include "Windows.h"
+#include "SFML/Audio.hpp"
 
 namespace Minesweeper
 {
@@ -20,7 +21,9 @@ namespace Minesweeper
 
 		std::vector<std::vector<Minesweeper::Cell>> _level;
 
-
+		sf::Sound _openSound;
+		sf::Sound _lostSound;
+		sf::Sound _wonSound;
 
 	public:
 

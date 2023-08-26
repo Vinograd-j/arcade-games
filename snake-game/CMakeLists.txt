@@ -6,5 +6,6 @@ add_library(snake-game STATIC
         src/witch_level.cpp
         src/level-window.cpp)
 
-target_link_libraries(snake-game PRIVATE arcade-lib sfml-graphics sfml-window sfml-system sfml-main sfml-audio)
+target_link_libraries(snake-game PRIVATE arcade-lib sfml-graphics sfml-window sfml-system sfml-main)
+
 target_include_directories(snake-game PRIVATE include)

@@ -89,11 +89,11 @@ void SnakeMenu::CreateButtons()
 	float centerX = (static_cast<float>(_windowSize.width) - _buttonSize.x) / 2.f;
 	float centerY = (static_cast<float>(_windowSize.height) - _buttonSize.y) / 2.f;
 
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 200), _easyButtonText, sf::Color(201, 209, 180), [this](){SnakeMenu::OnEasyLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 200), _easyButtonText, sf::Color(201, 209, 180), [this](){OnEasyLevelChosen();}));
 	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY -100), _normalButtonText, sf::Color(23, 138, 50), [this](){OnNormalLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY), _hardButtonText, sf::Color(194, 129, 25), [this](){SnakeMenu::OnHardLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _witchButtonText, sf::Color(142, 68, 227), [this]() {SnakeMenu::OnWitchLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 250), _returnButtonText, sf::Color(171, 218, 222), [this]() {SnakeMenu::OnReturnChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY), _hardButtonText, sf::Color(194, 129, 25), [this](){OnHardLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _witchButtonText, sf::Color(142, 68, 227), [this]() {OnWitchLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 250), _returnButtonText, sf::Color(171, 218, 222), [this]() {OnReturnChosen();}));
 }
 
 SnakeMenu::~SnakeMenu()

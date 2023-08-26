@@ -2,7 +2,7 @@
 #include "menu.h"
 #include "minesweeper-game-menu.h"
 #include "snake-main-menu.h"
-
+#include "tetris-game-menu.h"
 
 class MainMenu
 {
@@ -21,9 +21,11 @@ private:
 
 	sf::Text _snakeButtonText;
 	sf::Text _minesweeperButtonText;
+	sf::Text _tetrisButtonText;
 
 	class SnakeMenu* _snakeMenu;
 	class MinesweeperMenu* _minesweeperMenu;
+	class TetrisMenu* _tetrisMenu;
 
 public:
 
@@ -43,6 +45,7 @@ private:
 
 	void OnSnakeGameChosen();
 
-	void OnMinesweeperChanged();
+	void OnMinesweeperChosen();
 
+	void OnTetrisChosen();
 };

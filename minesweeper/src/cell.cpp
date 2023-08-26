@@ -42,7 +42,7 @@ bool Minesweeper::Cell::IsMouseInArea(const sf::Vector2f& mousePosition) const
 void Minesweeper::Cell::SetNeighborCountTest()
 {
 
-	if(!_textFont.loadFromFile("rubik-spray.ttf"))
+	if(!_textFont.loadFromFile("resources/font/rubik-spray.ttf"))
 		throw std::logic_error("Can`t load rubik-spray font");
 
 	_neighborCountText.setString(std::to_string(_neighborMinesCount));

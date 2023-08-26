@@ -80,10 +80,10 @@ void MinesweeperMenu::CreateButtons()
 	float centerX = (static_cast<float>(_windowSize.width) - _buttonSize.x) / 2.f;
 	float centerY = (static_cast<float>(_windowSize.height) - _buttonSize.y) / 2.f;
 
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _easyButtonText, sf::Color(201, 209, 180), [this](){MinesweeperMenu::OnEasyLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _easyButtonText, sf::Color(201, 209, 180), [this](){OnEasyLevelChosen();}));
 	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY), _normalButtonText, sf::Color(23, 138, 50), [this](){OnNormalLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _hardButtonText, sf::Color(194, 129, 25), [this](){MinesweeperMenu::OnHardLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 250), _returnButtonText, sf::Color(171, 218, 222), [this]() {MinesweeperMenu::OnReturnChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _hardButtonText, sf::Color(194, 129, 25), [this](){OnHardLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 250), _returnButtonText, sf::Color(171, 218, 222), [this]() {OnReturnChosen();}));
 }
 
 MinesweeperMenu::~MinesweeperMenu()
