@@ -1,7 +1,6 @@
 #include "main-menu.h"
 
-MainMenu::MainMenu(const sf::Font& textFont) : _textFont(textFont), _minesweeperMenu(new MinesweeperMenu(textFont, this)), _snakeMenu(new SnakeMenu(textFont, this)),
-												_tetrisMenu(new TetrisMenu(textFont, this))
+MainMenu::MainMenu(const sf::Font& textFont) : _textFont(textFont), _minesweeperMenu(new MinesweeperMenu(textFont, this)), _snakeMenu(new SnakeMenu(textFont, this))
 {
 	Initialize();
 }
@@ -41,24 +40,15 @@ void MainMenu::OnMinesweeperChosen()
 	_minesweeperMenu->Open();
 }
 
-
-void MainMenu::OnTetrisChosen()
-{
-	Close();
-	_tetrisMenu->Open();
-}
-
 void MainMenu::CreateTexts()
 {
 	sf::Text title("ARCADE GAMES", _textFont, 50);
 
 	_snakeButtonText = sf::Text("SNAKE GAME", _textFont, _textSize);
 	_minesweeperButtonText = sf::Text("MINESWEEPER", _textFont, _textSize);
-	_tetrisButtonText = sf::Text("TETRIS", _textFont, _textSize);
 
 	_snakeButtonText.setFillColor(sf::Color(183, 0, 255));
 	_minesweeperButtonText.setFillColor(sf::Color(222, 216, 40));
-	_tetrisButtonText.setFillColor(sf::Color(214, 175, 77));
 
 
 	title.setPosition(((float)_windowSize.width - title.getGlobalBounds().width) / 2, ((float)_windowSize.height - title.getGlobalBounds().height) / 2 - 320);
@@ -73,8 +63,7 @@ void MainMenu::CreateButtons()
 	float centerY = (static_cast<float>(_windowSize.height) - _buttonSize.y) / 2.f;
 
 	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _snakeButtonText, sf::Color(201, 209, 180), [this](){MainMenu::OnSnakeGameChosen();}));
-	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY), _minesweeperButtonText, sf::Color(23, 138, 50), [this](){ MainMenu::OnMinesweeperChosen();}));
-	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _tetrisButtonText, sf::Color(139, 27, 204), [this](){MainMenu::OnTetrisChosen();}));
+	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _minesweeperButtonText, sf::Color(23, 138, 50), [this](){ MainMenu::OnMinesweeperChosen();}));
 }
 
 MainMenu::~MainMenu()
@@ -82,6 +71,5 @@ MainMenu::~MainMenu()
 	delete _menu;
 	delete _snakeMenu;
 	delete _minesweeperMenu;
-	delete _tetrisMenu;
 }
 

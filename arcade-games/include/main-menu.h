@@ -2,7 +2,6 @@
 #include "menu.h"
 #include "minesweeper-game-menu.h"
 #include "snake-main-menu.h"
-#include "tetris-game-menu.h"
 
 class MainMenu
 {
@@ -25,7 +24,6 @@ private:
 
 	class SnakeMenu* _snakeMenu;
 	class MinesweeperMenu* _minesweeperMenu;
-	class TetrisMenu* _tetrisMenu;
 
 public:
 

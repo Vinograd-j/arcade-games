@@ -7,7 +7,7 @@ set(CMAKE_EXE_LINKER_FLAGS "-static -static-libgcc")
 set(SFML_STATIC_LIBRARIES TRUE)
 
 
-find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+find_package(SFML 2.5 COMPONENTS graphics window system audio REQUIRED)
 
 add_subdirectory(arcade-games-lib)
 
