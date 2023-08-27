@@ -1,0 +1,4 @@
+{
+  "lostSoundPath": "resources/sounds/snake-lost.wav",
+  "ateSoundPath": "resources/sounds/ate.wav"
+}

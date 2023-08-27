@@ -1,5 +1,16 @@
 #include "level-window.h"
 
+Minesweeper::LevelWindow::LevelWindow(std::vector<std::vector<Minesweeper::Cell>>& level, const sf::VideoMode windowSize, const sf::Color backgroundColor)  :
+									  _level(level), _windowSize(windowSize), _backgroundColor(backgroundColor),
+									  _config(JsonConfig().ParseFromConfigFile())
+{
+
+	_openSound = new ArcadeGame::Sound(_config.GetOpenSoundPath());
+	_lostSound = new ArcadeGame::Sound(_config.GetLostSoundPath());
+	_wonSound = new ArcadeGame::Sound(_config.GetWonSoundPath());
+
+}
+
 void Minesweeper::LevelWindow::Open()
 {
 
@@ -30,7 +41,7 @@ void Minesweeper::LevelWindow::Open()
 
 					if (isGameLost || isWon)
 					{
-						isWon ? _wonSound.Play() : _lostSound.Play();
+						isWon ? _wonSound->Play() : _lostSound->Play();
 
 						RevealAll();
 						Draw();
@@ -71,7 +82,7 @@ bool Minesweeper::LevelWindow::HandleLeftClick(const sf::Vector2f& mousePosition
 					_level[i][j].Reveal();
 
 					if (!_level[i][j].IsBomb())
-						_openSound.Play();
+						_openSound->Play();
 
 					if(_level[i][j].GetNeighborMinesCount() == 0)
 						RevealNeighbor(i, j);
@@ -172,3 +183,12 @@ void Minesweeper::LevelWindow::Draw()
 
 	_window.display();
 }
+
+Minesweeper::LevelWindow::~LevelWindow()
+{
+	delete _wonSound;
+	delete _lostSound;
+	delete _openSound;
+}
+
+

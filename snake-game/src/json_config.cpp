@@ -3,7 +3,7 @@
 SnakeGame::Config SnakeGame::JsonConfig::ParseFromConfigFile()
 {
 
-	std::ifstream inputFile("snakeConfig.json");
+	std::ifstream inputFile("configs/snakeConfig.json");
 
 	if(!inputFile.is_open())
 		throw std::logic_error("Can`t open snakeConfig.json");

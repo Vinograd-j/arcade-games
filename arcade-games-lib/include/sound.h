@@ -20,6 +20,8 @@ namespace ArcadeGame
 
 		explicit Sound(const std::string& path);
 
+		Sound() = default;
+
 		void Play();
 
 		sf::SoundSource::Status GetStatus();

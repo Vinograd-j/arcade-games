@@ -4,7 +4,7 @@
 Minesweeper::Config Minesweeper::JsonConfig::ParseFromConfigFile()
 {
 
-	std::ifstream inputFile("minesweeperConfig.json");
+	std::ifstream inputFile("configs/minesweeperConfig.json");
 
 	if(!inputFile.is_open())
 		throw std::logic_error("Can`t open snakeConfig.json");

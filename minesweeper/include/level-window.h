@@ -23,18 +23,19 @@ namespace Minesweeper
 
 		std::vector<std::vector<Minesweeper::Cell>> _level;
 
-		ArcadeGame::Sound _openSound;
-		ArcadeGame::Sound _lostSound;
-		ArcadeGame::Sound _wonSound;
+		ArcadeGame::Sound* _openSound {};
+		ArcadeGame::Sound* _lostSound {};
+		ArcadeGame::Sound* _wonSound {};
 
+		Config _config;
 
 	public:
 
-		explicit LevelWindow(std::vector<std::vector<Minesweeper::Cell>>& level, const sf::VideoMode windowSize, const sf::Color backgroundColor) :
-							 _level(level), _windowSize(windowSize), _backgroundColor(backgroundColor), _openSound(JsonConfig().ParseFromConfigFile().GetOpenSoundPath()),
-							 _lostSound(JsonConfig().ParseFromConfigFile().GetLostSoundPath()), _wonSound(JsonConfig().ParseFromConfigFile().GetWonSoundPath()) {}
+		explicit LevelWindow(std::vector<std::vector<Minesweeper::Cell>>& level, const sf::VideoMode windowSize, const sf::Color backgroundColor);
 
 		void Open();
+
+		~LevelWindow();
 
 	private:
 

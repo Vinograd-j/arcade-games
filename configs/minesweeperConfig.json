@@ -1,0 +1,7 @@
+{
+    "openSoundPath": "resources/sounds/open.wav",
+    "lostSoundPath": "resources/sounds/minesweeper-lost.wav",
+    "wonSoundPath": "resources/sounds/won.wav",
+    "fontPath": "resources/font/rubik-spray.ttf"
+}
+  
