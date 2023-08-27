@@ -1,10 +1,11 @@
 #include "field.h"
+#include "json.hpp"
+#include "json_config.h"
 
 SnakeGame::Field::Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize, Snake* snake, Food* food) : _snake(snake), _food(food),
 																																			_size(fieldSize), _outlineThickness(outlineThickness),
-																																			_ateSound("resources/sounds/ate.wav")
+																																			_ateSound(JsonConfig().ParseFromConfigFile().GetAteSoundPath())
 {
-
 	InitializeField(windowSize);
 }
 

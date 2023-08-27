@@ -5,6 +5,7 @@
 #include "Windows.h"
 #include "SFML/Audio.hpp"
 #include "sound.h"
+#include "json_config.h"
 
 namespace Minesweeper
 {
@@ -26,11 +27,12 @@ namespace Minesweeper
 		ArcadeGame::Sound _lostSound;
 		ArcadeGame::Sound _wonSound;
 
+
 	public:
 
 		explicit LevelWindow(std::vector<std::vector<Minesweeper::Cell>>& level, const sf::VideoMode windowSize, const sf::Color backgroundColor) :
-							 _level(level), _windowSize(windowSize), _backgroundColor(backgroundColor), _openSound("resources/sounds/open.wav"),
-							 _lostSound("resources/sounds/minesweeper-lost.wav"), _wonSound("resources/sounds/won.wav") {}
+							 _level(level), _windowSize(windowSize), _backgroundColor(backgroundColor), _openSound(JsonConfig().ParseFromConfigFile().GetOpenSoundPath()),
+							 _lostSound(JsonConfig().ParseFromConfigFile().GetLostSoundPath()), _wonSound(JsonConfig().ParseFromConfigFile().GetWonSoundPath()) {}
 
 		void Open();
 

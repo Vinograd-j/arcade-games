@@ -1,5 +1,6 @@
 #include <SFML/Graphics/Text.hpp>
 #include "cell.h"
+#include "json_config.h"
 
 Minesweeper::Cell::Cell(const sf::Vector2f size, bool isBomb) : _cell(size), _isBomb(isBomb), _state(CellState::HIDDEN), _neighborMinesCount(0)
 {
@@ -42,7 +43,7 @@ bool Minesweeper::Cell::IsMouseInArea(const sf::Vector2f& mousePosition) const
 void Minesweeper::Cell::SetNeighborCountTest()
 {
 
-	if(!_textFont.loadFromFile("resources/font/rubik-spray.ttf"))
+	if(!_textFont.loadFromFile(JsonConfig().ParseFromConfigFile().GetFontPath()))
 		throw std::logic_error("Can`t load rubik-spray font");
 
 	_neighborCountText.setString(std::to_string(_neighborMinesCount));

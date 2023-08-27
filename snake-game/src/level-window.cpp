@@ -1,5 +1,6 @@
 #include "level-window.h"
 #include "Windows.h"
+#include "json_config.h"
 
 void SnakeGame::LevelWindow::Open()
 {
@@ -7,7 +8,9 @@ void SnakeGame::LevelWindow::Open()
 	_window.create(_windowSize, "SnakeGame", sf::Style::Titlebar | sf::Style::Close);
 	_window.setFramerateLimit(60);
 
-	ArcadeGame::Sound lostSound("resources/sounds/snake-lost.wav");
+	Config config = JsonConfig().ParseFromConfigFile();
+
+	ArcadeGame::Sound lostSound(config.GetLostSoundPath());
 
 	_movingThread.launch();
 

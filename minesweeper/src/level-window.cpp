@@ -1,6 +1,4 @@
 #include "level-window.h"
-#include "../../snake-game/include/level-window.h"
-
 
 void Minesweeper::LevelWindow::Open()
 {
