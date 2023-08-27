@@ -1,6 +1,5 @@
 ﻿#include "level.h"
-#include "../../minesweeper/include/level.h"
-#include "level-window.h"
+
 
 SnakeGame::Level::Level(const sf::Color& backgroundColor, int snakeSpeed) : SNAKE_SPEED(snakeSpeed), _isSnakeMoving(true), _backgroundColor(backgroundColor)
 {
@@ -47,7 +46,7 @@ void SnakeGame::Level::StartGame()
 		StartMovingSnake();
 	});
 
-	LevelWindow(_snake, _food, _field, _backgroundColor, _isSnakeMoving, sf::VideoMode::getDesktopMode(), movingThread).Open();
+	LevelWindow(_field, _backgroundColor, _isSnakeMoving, sf::VideoMode::getDesktopMode(), movingThread).Open();
 }
 
 void SnakeGame::Level::StartMovingSnake()

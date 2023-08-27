@@ -22,4 +22,5 @@ set_target_properties(arcade-games PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/arcade-games/bin"
 )
 
+
 file(COPY resources DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")

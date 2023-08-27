@@ -1,4 +1,5 @@
 #include "level-window.h"
+#include "Windows.h"
 
 void SnakeGame::LevelWindow::Open()
 {
@@ -6,21 +7,35 @@ void SnakeGame::LevelWindow::Open()
 	_window.create(_windowSize, "SnakeGame", sf::Style::Titlebar | sf::Style::Close);
 	_window.setFramerateLimit(60);
 
+	ArcadeGame::Sound lostSound("resources/sounds/snake-lost.wav");
+
 	_movingThread.launch();
 
 	while (_window.isOpen())
 	{
+
+		if (!_isSnakeMoving)
+		{
+			lostSound.Play();
+
+			_movingThread.terminate();
+
+			while (lostSound.GetStatus() == sf::Sound::Playing);
+
+			_window.close();
+		}
 
 		sf::Event event {};
 
 		while (_window.pollEvent(event))
 		{
 
-			if (!_isSnakeMoving || event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed)
 			{
 				_movingThread.terminate();
 				_window.close();
 			}
+
 
 			if (event.type == sf::Event::KeyPressed)
 			{

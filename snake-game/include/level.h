@@ -4,6 +4,8 @@
 #include <atomic>
 #include <thread>
 #include <windows.h>
+#include "../../minesweeper/include/level.h"
+#include "level-window.h"
 
 namespace SnakeGame
 {

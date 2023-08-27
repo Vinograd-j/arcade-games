@@ -6,6 +6,7 @@
 #include "snake.h"
 #include "random.h"
 #include "direction.h"
+#include "sound.h"
 
 namespace SnakeGame
 {
@@ -27,6 +28,8 @@ namespace SnakeGame
 
 		std::mutex _lockObject;
 
+		ArcadeGame::Sound _ateSound;
+
 	public:
 
 		explicit Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize,
@@ -43,6 +46,7 @@ namespace SnakeGame
 		void InitializeField(const sf::VideoMode& windowSize);
 
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
 
 	};
 

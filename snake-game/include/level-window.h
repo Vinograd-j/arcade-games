@@ -5,7 +5,6 @@
 #include "snake.h"
 #include "food.h"
 #include "field.h"
-#include "SFML/Audio.hpp"
 
 namespace SnakeGame
 {
@@ -17,10 +16,6 @@ namespace SnakeGame
 	private:
 
 		sf::RenderWindow _window;
-
-		Snake* _snake;
-
-		Food* _food;
 
 		Field* _field;
 
@@ -34,8 +29,8 @@ namespace SnakeGame
 
 	public:
 
-		explicit LevelWindow(Snake* snake, Food* food, Field* field, const sf::Color& backgroundColor, const std::atomic<bool>& isSnakeMoving, const sf::VideoMode& windowSize, sf::Thread& movingThread) :
-							_snake(snake), _food(food), _field(field), _backgroundColor(backgroundColor), _isSnakeMoving(isSnakeMoving), _windowSize(windowSize),
+		explicit LevelWindow(Field* field, const sf::Color& backgroundColor, const std::atomic<bool>& isSnakeMoving, const sf::VideoMode& windowSize, sf::Thread& movingThread) :
+							_field(field), _backgroundColor(backgroundColor), _isSnakeMoving(isSnakeMoving), _windowSize(windowSize),
 							_movingThread(movingThread) {}
 
 		void Open();

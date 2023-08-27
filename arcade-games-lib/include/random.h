@@ -2,21 +2,29 @@
 
 #include <random>
 
-class Random
+namespace ArcadeGame
 {
 
-private:
 
-	std::random_device _device;
+	class Random
+	{
 
-	std::mt19937 _randomGenerator;
+	private:
 
-public:
+		std::random_device _device;
 
-	Random() : _randomGenerator(_device()) {}
+		std::mt19937 _randomGenerator;
 
-	size_t GenerateRandomLong(size_t min, size_t max);
-	double GenerateRandomDouble(double min, double max);
+	public:
 
-};
+		Random() : _randomGenerator(_device())
+		{
+		}
 
+		size_t GenerateRandomLong(size_t min, size_t max);
+
+		double GenerateRandomDouble(double min, double max);
+
+	};
+
+}

@@ -28,7 +28,7 @@ void Minesweeper::Level::CreateLevel()
 		_level[i].resize(_cellsWidth, Cell(sf::Vector2f(), false));
 	}
 
-	Random random;
+	ArcadeGame::Random random;
 
 	float startX = (_windowSize.width - (_cellsWidth * _cellSize.x + (_cellsWidth - 1) * 5)) / 2;
 	float startY = (_windowSize.height - (_cellsHeight * _cellSize.y + (_cellsHeight - 1) * 5)) / 2;

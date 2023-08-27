@@ -1,8 +1,10 @@
 #include "field.h"
 
 SnakeGame::Field::Field(const sf::Vector2f& fieldSize, float outlineThickness, const sf::VideoMode& windowSize, Snake* snake, Food* food) : _snake(snake), _food(food),
-                                                                                                                                 _size(fieldSize), _outlineThickness(outlineThickness)
+																																			_size(fieldSize), _outlineThickness(outlineThickness),
+																																			_ateSound("resources/sounds/ate.wav")
 {
+
 	InitializeField(windowSize);
 }
 
@@ -26,6 +28,8 @@ bool SnakeGame::Field::TryMoveSnake()
 
 	if (snakeHeadRect.intersects(foodRect))
 	{
+
+		_ateSound.Play();
 
 		_snake->Grow();
 
@@ -64,7 +68,7 @@ bool SnakeGame::Field::TrySpawnFood()
 	if (points.empty())
 		return false;
 
-	Random random;
+	ArcadeGame::Random random;
 
 	size_t randomPoint = random.GenerateRandomLong(0, points.size() - 1);
 
