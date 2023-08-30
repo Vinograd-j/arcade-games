@@ -15,3 +15,6 @@ target_link_libraries(arcade-games PRIVATE sfml-audio arcade-lib sfml-system sna
 target_include_directories(arcade-games PRIVATE include)
 
 file(COPY ${CMAKE_SOURCE_DIR}/dlls/openal32.dll DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")
+
+file(COPY ${CMAKE_SOURCE_DIR}/resources DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")
+file(COPY ${CMAKE_SOURCE_DIR}/configs DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")

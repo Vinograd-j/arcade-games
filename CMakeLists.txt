@@ -16,11 +16,9 @@ add_subdirectory(snake-game)
 add_subdirectory(minesweeper)
 
 add_subdirectory(arcade-games)
+
 set_target_properties(arcade-games PROPERTIES
         ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/arcade-games/lib"
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/arcade-games/bin"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/arcade-games/bin"
 )
-
-file(COPY resources DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")
-file(COPY configs DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")
