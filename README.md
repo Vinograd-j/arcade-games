@@ -1,6 +1,6 @@
 # ARCADE-GAMES
 
-**How to build this project with CMake: **
+**How to build this project with CMake:**
 
 1.  Download this repository.
 
@@ -8,7 +8,7 @@
 
 3. Use `mkdir build` to create a folder where the project will be built
 
-4. Use cd build to go into the created folder. 
+4. Use `cd build` to go into the created folder. 
 
 5. Write: `cmake -G "MinGW Makefiles" -DBUILD_SHARED_LIBS=ON ..`. You can write OFF in the BUILD_SHARED_LIBS option, then the SFML library will be built as static
 
