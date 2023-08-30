@@ -1,4 +1,10 @@
-add_library(snake-game SHARED
+if(BUILD_SHARED_LIBS)
+    set(LIB_TYPE SHARED)
+else()
+    set(LIB_TYPE STATIC)
+endif()
+
+add_library(snake-game ${LIB_TYPE}
         src/field.cpp
         src/food.cpp
         src/level.cpp

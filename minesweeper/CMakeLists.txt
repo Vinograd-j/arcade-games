@@ -1,4 +1,10 @@
-add_library(minesweeper SHARED
+if(BUILD_SHARED_LIBS)
+    set(LIB_TYPE SHARED)
+else()
+    set(LIB_TYPE STATIC)
+endif()
+
+add_library(minesweeper ${LIB_TYPE}
             src/cell.cpp
             src/level.cpp
             src/level-window.cpp include/easy-level.h include/normal-level.h include/config.h include/json_config.h src/json_config.cpp)

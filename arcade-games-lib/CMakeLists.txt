@@ -1,4 +1,11 @@
-add_library(arcade-lib STATIC
+if(BUILD_SHARED_LIBS)
+    set(LIB_TYPE SHARED)
+else()
+    set(LIB_TYPE STATIC)
+endif()
+
+
+add_library(arcade-lib ${LIB_TYPE}
         src/button.cpp
         src/menu.cpp
         src/random.cpp
