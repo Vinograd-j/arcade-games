@@ -1,4 +1,4 @@
-###ARCADE-GAMES
+# ARCADE-GAMES
 
 **How to build this project with CMake: **
 
