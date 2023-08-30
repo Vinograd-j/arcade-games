@@ -10,6 +10,8 @@ if (WIN32 AND BUILD_SHARED_LIBS)
             COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:arcade-games> $<TARGET_FILE_DIR:arcade-games> COMMAND_EXPAND_LISTS)
 endif()
 
-target_link_libraries(arcade-games PRIVATE arcade-lib sfml-system snake-game minesweeper sfml-graphics sfml-window sfml-main)
+target_link_libraries(arcade-games PRIVATE sfml-audio arcade-lib sfml-system snake-game minesweeper sfml-graphics sfml-window sfml-main)
 
 target_include_directories(arcade-games PRIVATE include)
+
+file(COPY ${CMAKE_SOURCE_DIR}/dlls/openal32.dll DESTINATION "${CMAKE_BINARY_DIR}/arcade-games/bin")
