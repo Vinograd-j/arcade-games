@@ -6,7 +6,7 @@ add_library(arcade-lib STATIC
         )
 
 target_include_directories(arcade-lib PUBLIC include)
-target_link_libraries(arcade-lib PRIVATE sfml-audio sfml-window sfml-graphics
+target_link_libraries(arcade-lib PRIVATE sfml-audio sfml-system  sfml-window sfml-graphics
                     ${CMAKE_SOURCE_DIR}/libs/libopenal32.a
                     ${CMAKE_SOURCE_DIR}/libs/libFLAC.a
                     ${CMAKE_SOURCE_DIR}/libs/libvorbisenc.a

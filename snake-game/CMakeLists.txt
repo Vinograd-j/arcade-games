@@ -6,7 +6,7 @@ add_library(snake-game STATIC
         src/witch_level.cpp
         src/level-window.cpp include/json_config.h src/json_config.cpp)
 
-target_link_libraries(snake-game PRIVATE arcade-lib sfml-audio sfml-graphics sfml-window sfml-system sfml-main
+target_link_libraries(snake-game PRIVATE arcade-lib sfml-audio sfml-system sfml-main sfml-graphics sfml-window
                     ${CMAKE_SOURCE_DIR}/libs/libopenal32.a
                     ${CMAKE_SOURCE_DIR}/libs/libFLAC.a
                     ${CMAKE_SOURCE_DIR}/libs/libvorbisenc.a
