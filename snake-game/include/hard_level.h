@@ -9,7 +9,7 @@ namespace SnakeGame
 
 	public:
 
-		explicit HardLevel(const sf::Color& backgroundColor) : Level(sf::Color(backgroundColor), 50) {}
+		explicit HardLevel(const sf::Color& backgroundColor) : Level(sf::Color(backgroundColor), 70) {}
 
 	};
 

@@ -11,7 +11,7 @@ namespace SnakeGame
 
 	public:
 
-		explicit EasyLevel(const sf::Color& backgroundColor) : Level(backgroundColor, 15) {}
+		explicit EasyLevel(const sf::Color& backgroundColor) : Level(backgroundColor, 25) {}
 
 	};
 

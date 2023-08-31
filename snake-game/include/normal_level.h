@@ -9,7 +9,7 @@ namespace SnakeGame
 
 	public:
 
-		explicit NormalLevel(const sf::Color& backgroundColor) : Level(backgroundColor, 25) {}
+		explicit NormalLevel(const sf::Color& backgroundColor) : Level(backgroundColor, 40) {}
 
 	};
 
