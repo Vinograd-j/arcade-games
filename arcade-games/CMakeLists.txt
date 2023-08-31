@@ -2,7 +2,7 @@ add_executable(arcade-games WIN32
         arcade-games.cpp
         src/main-menu.cpp
         src/snake-game-menu.cpp
-        src/minesweeper-main-menu.cpp)
+        src/minesweeper-game-menu.cpp)
 
 
 target_link_libraries(arcade-games PRIVATE sfml-audio arcade-lib sfml-system snake-game minesweeper sfml-graphics sfml-window sfml-main)
