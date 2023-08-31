@@ -14,9 +14,10 @@ if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET arcade-games POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:arcade-games> $<TARGET_FILE_DIR:arcade-games> COMMAND_EXPAND_LISTS)
 
-    file(GLOB DLLS ${CMAKE_SOURCE_DIR}/dlls/system/*.dll)
-
-    file(COPY ${DLLS} DESTINATION ${CMAKE_BINARY_DIR}/arcade-games/bin)
+    if (MOVE_SYSTEM_LIBS)
+        file(GLOB DLLS ${CMAKE_SOURCE_DIR}/dlls/system/*.dll)
+        file(COPY ${DLLS} DESTINATION ${CMAKE_BINARY_DIR}/arcade-games/bin)
+    endif ()
 
 else ()
     set(CMAKE_EXE_LINKER_FLAGS "-static -static-libgcc -static-libstdc++")
