@@ -4,7 +4,6 @@ add_executable(arcade-games WIN32
         src/snake-game-menu.cpp
         src/minesweeper-main-menu.cpp)
 
-
 if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET arcade-games POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:arcade-games> $<TARGET_FILE_DIR:arcade-games> COMMAND_EXPAND_LISTS)
