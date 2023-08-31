@@ -129,7 +129,7 @@ void Minesweeper::LevelWindow::RevealAll()
 		}
 		Draw();
 	}
-	
+
 
 }
 

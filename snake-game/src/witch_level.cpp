@@ -8,7 +8,7 @@ void SnakeGame::WitchLevel::StartMovingSnake()
 
 	int speed = START_SPEED;
 
-	float interval = 1.f;
+	float interval = 0.5f;
 
 	float elapsedTime = 0.0f;
 
@@ -19,7 +19,7 @@ void SnakeGame::WitchLevel::StartMovingSnake()
 
 		if (elapsedTime >= interval)
 		{
-			speed += 2;
+			speed += 3;
 			elapsedTime = 0.0f;
 		}
 

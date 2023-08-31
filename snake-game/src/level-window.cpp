@@ -6,7 +6,7 @@ void SnakeGame::LevelWindow::Open()
 {
 
 	_window.create(_windowSize, "SnakeGame", sf::Style::Titlebar | sf::Style::Close);
-	_window.setFramerateLimit(60);
+	_window.setFramerateLimit(100);
 
 	Config config = JsonConfig().ParseFromConfigFile();
 

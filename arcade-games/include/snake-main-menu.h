@@ -23,6 +23,7 @@ private:
 	sf::Text _normalButtonText;
 	sf::Text _hardButtonText;
 	sf::Text _witchButtonText;
+	sf::Text _madnessButtonText;
 
 	sf::Text _returnButtonText;
 
@@ -55,5 +56,7 @@ private:
 	void OnWitchLevelChosen() const;
 
 	void OnReturnChosen();
+
+	void OnMadnessLevelChosen();
 };
 

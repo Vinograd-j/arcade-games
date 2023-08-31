@@ -4,6 +4,7 @@
 #include "../../snake-game/include/hard_level.h"
 #include "../../snake-game/include/normal_level.h"
 #include "../../snake-game/include/witch_level.h"
+#include "../../snake-game/include/madness-level.h"
 
 
 SnakeMenu::SnakeMenu(const sf::Font& textFont, class MainMenu* mainMenu) : _textFont(textFont), _mainMenu(mainMenu)
@@ -54,6 +55,11 @@ void SnakeMenu::OnWitchLevelChosen() const
 	SnakeGame::WitchLevel(sf::Color(57, 7, 79)).StartGame();
 }
 
+void SnakeMenu::OnMadnessLevelChosen()
+{
+	SnakeGame::MadnessLevel(sf::Color(222, 160, 202)).StartGame();
+}
+
 void SnakeMenu::OnReturnChosen()
 {
 	Close();
@@ -69,12 +75,15 @@ void SnakeMenu::CreateTexts()
 	_normalButtonText =  sf::Text("Normal Level", _textFont, _textSize);
 	_hardButtonText =  sf::Text("Hard Level", _textFont, _textSize);
 	_witchButtonText = sf::Text("Witch Level", _textFont, _textSize);
+	_madnessButtonText = sf::Text("Madness Level", _textFont, _textSize);
 	_returnButtonText = sf::Text("Return to Menu", _textFont, _textSize);
+
 
 	_easyButtonText.setFillColor(sf::Color(235, 38, 176));
 	_normalButtonText.setFillColor(sf::Color(235, 195, 87));
 	_hardButtonText.setFillColor(sf::Color(120, 28, 117));
 	_witchButtonText.setFillColor(sf::Color(33, 207, 111));
+	_madnessButtonText.setFillColor(sf::Color(252, 186, 3));
 	_returnButtonText.setFillColor(sf::Color(191, 161, 40));
 
 	title.setPosition(((float)_windowSize.width - title.getGlobalBounds().width) / 2, ((float)_windowSize.height - title.getGlobalBounds().height) / 2 - 320);
@@ -93,7 +102,10 @@ void SnakeMenu::CreateButtons()
 	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY -100), _normalButtonText, sf::Color(23, 138, 50), [this](){OnNormalLevelChosen();}));
 	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY), _hardButtonText, sf::Color(194, 129, 25), [this](){OnHardLevelChosen();}));
 	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _witchButtonText, sf::Color(142, 68, 227), [this]() {OnWitchLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 250), _returnButtonText, sf::Color(171, 218, 222), [this]() {OnReturnChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 200), _madnessButtonText, sf::Color(214, 60, 165), [this]() {OnMadnessLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 320), _returnButtonText, sf::Color(171, 218, 222), [this]() {OnReturnChosen();}));
+
+
 }
 
 SnakeMenu::~SnakeMenu()
