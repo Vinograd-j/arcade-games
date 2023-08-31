@@ -11,7 +11,7 @@
 4. Use `cd build` to go into the created folder. 
 
 5. Write: `cmake -G "MinGW Makefiles" -DBUILD_SHARED_LIBS=ON ..`. You can write OFF in the `BUILD_SHARED_LIBS` option, then the SFML library will be built as static. ( SFML library will be downloaded automatically ).
-###### You can use flag `MOVE_SYSTEM_LIBS=ON/OFF`. in order to move the necessary system dll files to the bin folder. This is necessary in cases where you want to give a build to another person who does not have MinGW and, accordingly, does not have these system libraries installed. 
+    ##### You can use flag `MOVE_SYSTEM_LIBS=ON/OFF`. in order to move the necessary system dll files to the bin folder. This is necessary in cases where you want to give a build to another person who does not have MinGW and, accordingly, does not have these system libraries installed. 
 
 7. Now you can compile the project using `mingw32-make`. The executable file will be in arcade-games/bin
 
