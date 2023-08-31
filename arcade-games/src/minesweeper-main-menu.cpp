@@ -3,7 +3,7 @@
 #include "../../minesweeper/include/easy-level.h"
 #include "../../minesweeper/include/normal-level.h"
 #include "../../minesweeper/include/hard-level.h"
-#include "../../minesweeper/include/pro-level.h"
+#include "../../minesweeper/include/lucky-level.h"
 
 
 MinesweeperMenu::MinesweeperMenu(const sf::Font& textFont, class MainMenu* mainMenu) : _textFont(textFont), _mainMenu(mainMenu)
@@ -49,9 +49,9 @@ void MinesweeperMenu::OnHardLevelChosen() const
 	Minesweeper::HardLevel().StartGame();
 }
 
-void MinesweeperMenu::OnProLevelChosen()
+void MinesweeperMenu::OnLuckyLevelChosen()
 {
-	Minesweeper::ProLevel().StartGame();
+	Minesweeper::LuckyLevel().StartGame();
 }
 
 void MinesweeperMenu::OnReturnChosen()
@@ -67,14 +67,14 @@ void MinesweeperMenu::CreateTexts()
 	_easyButtonText = sf::Text("Easy Level", _textFont, _textSize);
 	_normalButtonText =  sf::Text("Normal Level", _textFont, _textSize);
 	_hardButtonText = sf::Text("Hard Level", _textFont, _textSize);
-	_proButtonText = sf::Text("Pro Level", _textFont, _textSize);
+	_luckyButtonText = sf::Text("Lucky Level", _textFont, _textSize);
 	_returnButtonText =  sf::Text("Return to Menu", _textFont, _textSize);
 
 
 	_easyButtonText.setFillColor(sf::Color(235, 38, 176));
 	_normalButtonText.setFillColor(sf::Color(235, 195, 87));
 	_hardButtonText.setFillColor(sf::Color(120, 28, 117));
-	_proButtonText.setFillColor(sf::Color(237, 50, 50));
+	_luckyButtonText.setFillColor(sf::Color(237, 50, 50));
 	_returnButtonText.setFillColor(sf::Color(191, 161, 40));
 
 
@@ -93,7 +93,7 @@ void MinesweeperMenu::CreateButtons()
 	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY - 100), _easyButtonText, sf::Color(201, 209, 180), [this](){OnEasyLevelChosen();}));
 	_menu->AddButton( new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY), _normalButtonText, sf::Color(23, 138, 50), [this](){OnNormalLevelChosen();}));
 	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 100), _hardButtonText, sf::Color(194, 129, 25), [this](){OnHardLevelChosen();}));
-	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 200), _proButtonText, sf::Color(131, 85, 212), [this]() {OnProLevelChosen();}));
+	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 200), _luckyButtonText, sf::Color(131, 85, 212), [this]() { OnLuckyLevelChosen();}));
 	_menu->AddButton(new ArcadeGame::Button(_buttonSize, sf::Vector2f(centerX, centerY + 350), _returnButtonText, sf::Color(171, 218, 222), [this]() {OnReturnChosen();}));
 
 }

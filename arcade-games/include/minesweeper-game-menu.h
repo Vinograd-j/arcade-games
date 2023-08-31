@@ -21,7 +21,7 @@ private:
 	sf::Text _easyButtonText;
 	sf::Text _normalButtonText;
 	sf::Text _hardButtonText;
-	sf::Text _proButtonText;
+	sf::Text _luckyButtonText;
 
 	sf::Text _returnButtonText;
 
@@ -52,5 +52,5 @@ private:
 	void OnReturnChosen();
 
 
-	void OnProLevelChosen();
+	void OnLuckyLevelChosen();
 };
