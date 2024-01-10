@@ -61,7 +61,6 @@ void Minesweeper::LevelWindow::Open()
 				Draw();
 			}
 
-
 		}
 
 	}

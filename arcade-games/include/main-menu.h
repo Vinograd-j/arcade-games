@@ -1,4 +1,5 @@
 #pragma once
+
 #include "menu.h"
 #include "minesweeper-game-menu.h"
 #include "snake-main-menu.h"
@@ -45,5 +46,4 @@ private:
 
 	void OnMinesweeperChosen();
 
-	void OnTetrisChosen();
 };

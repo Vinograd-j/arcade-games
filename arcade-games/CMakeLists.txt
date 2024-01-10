@@ -9,7 +9,6 @@ target_link_libraries(arcade-games PRIVATE sfml-audio arcade-lib sfml-system sna
 
 target_include_directories(arcade-games PRIVATE include)
 
-
 if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET arcade-games POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:arcade-games> $<TARGET_FILE_DIR:arcade-games> COMMAND_EXPAND_LISTS)
